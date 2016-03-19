@@ -13,14 +13,14 @@ function themeConfig($form) {
     'ShowArchive' => _t('显示归档'),
     'ShowOther' => _t('显示其它杂项'));
     foreach ($pages as $key => $value) {
-      $list[$value['slug']] = $value['title'];
+      $pagesArray[$value['slug']] = $value['title'];
     }
-
-    $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
-    $list,
-    array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
-
+    $list=array_merge($list,$pagesArray);
+    $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',$list,
+    array('ShowRecentPosts','ShowRecentComments','ShowCategory','ShowArchive','ShowOther'), _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
+    $showPages = new Typecho_Widget_Helper_Form_Element_Checkbox('showPages',$pagesArray,array_keys($pagesArray), _t('独立页面显示'));
+    $form->addInput($showPages->multiMode());
 }
 
 function PageToLinks($page)
