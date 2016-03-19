@@ -5,7 +5,7 @@
   <?php while($pages->next()): ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array($pages->slug, $this->options->sidebarBlock)): ?>
       <section class="widget">
-        <?php PageToLinks($pages->slug); ?>
+        <?php PageToLinks($pages); ?>
       </section>
     <?php endif; ?>
   <?php endwhile; ?>
