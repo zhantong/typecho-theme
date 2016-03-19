@@ -1,5 +1,14 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="col-mb-12 col-offset-1 col-3 kit-hidden-tb" id="secondary" role="complementary">
+  <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+  <?php //print_r($this->options->sidebarBlock); ?>
+  <?php while($pages->next()): ?>
+    <?php if (!empty($this->options->sidebarBlock) && in_array($pages->slug, $this->options->sidebarBlock)): ?>
+      <section class="widget">
+        <?php PageToLinks($pages->slug); ?>
+      </section>
+    <?php endif; ?>
+  <?php endwhile; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
     <section class="widget">
 		<h3 class="widget-title"><?php _e('最新文章'); ?></h3>
