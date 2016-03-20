@@ -2,15 +2,14 @@
     <?php while($this->next()): ?>
         <article class="post">
             <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
-
-            <ul class="post-meta">
-                <li>时间: <?php $this->date('F j, Y'); ?></li>
-                <li>分类: <?php $this->category(','); ?></li>
-                <li><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-            </ul>
             <div class="post-excerpt">
-                <?php $this->excerpt(); ?>
+                <p><small><?php $this->excerpt(); ?></small></p>
             </div>
+            <ul class="post-meta list-inline clearfix">
+                <li><span class="label label-default"><?php $this->date('Y-m-d'); ?></span></li>
+                <li><span class="label label-info"><?php $this->category(', '); ?></span></li>
+                <li class="pull-right"><a href="<?php $this->permalink() ?>#comments">评论 <span class="badge"><?php $this->commentsNum(); ?></span></a></li>
+            </ul>
         </article>
     <?php endwhile; ?>
     <?php return; //完成ajax方式返回，退出此页面?>

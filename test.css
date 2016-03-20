@@ -32,7 +32,10 @@ html, body {
     width: 100%;
 }
 article{
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     border-bottom: 1px;
     border-bottom-color: #eee;
     border-bottom-style: solid;
