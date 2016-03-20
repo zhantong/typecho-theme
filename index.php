@@ -28,7 +28,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
-<div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi" id="m-nav">
+<div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi auto-scroll" id="m-nav">
     <div class="post-list" id="main" >
     </div>
     <div id="load_more" class="post-list">
@@ -36,7 +36,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     </div>
 </div><!-- end #main-->
 
-<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8">
+<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8 auto-scroll">
     <div id="post">
     </div>
 </div>
