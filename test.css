@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+}
+
+.row-fluid {
+    height: 100%;
+}
+
+.column:before, .column:after {
+    content: "";
+    display: table;
+}
+
+.column:after {
+    clear: both;
+}
+
+.column {
+    height: 100%;
+    overflow: auto;
+}
+
+.box {
+    bottom: 0; /* increase for footer use */
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 80px;
+}
+
+.full {
+    width: 100%;
+}
+article{
+    padding: 10px;
+    border-bottom: 1px;
+    border-bottom-color: #eee;
+    border-bottom-style: solid;
+}
+.post-navi{
+    padding: 0;
+    border: 1px;
+    border-style: solid;
+    border-color: #eee;
+}

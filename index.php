@@ -1,3 +1,20 @@
+<?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
+    <?php while($this->next()): ?>
+        <article class="post">
+            <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
+
+            <ul class="post-meta">
+                <li>时间: <?php $this->date('F j, Y'); ?></li>
+                <li>分类: <?php $this->category(','); ?></li>
+                <li><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
+            </ul>
+            <div class="post-excerpt">
+                <?php $this->excerpt(); ?>
+            </div>
+        </article>
+    <?php endwhile; ?>
+    <?php return; //完成ajax方式返回，退出此页面?>
+<?php endif ?>
 <?php
 /**
  * 这是 Typecho 0.9 系统的一套默认皮肤
@@ -11,25 +28,17 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
-
-<div class="col-mb-12 col-8" id="main" role="main">
-    <?php while($this->next()): ?>
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-            <h2 class="post-title" itemprop="name headline"><a itemtype="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-            <ul class="post-meta">
-                <li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
-                <li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('F j, Y'); ?></time></li>
-                <li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-                <li itemprop="interactionCount"><a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-            </ul>
-            <div class="post-content" itemprop="articleBody">
-                <?php $this->content('- 阅读剩余部分 -'); ?>
-            </div>
-        </article>
-    <?php endwhile; ?>
-
-    <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
+<div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi" id="m-nav">
+    <div class="post-list" id="main" >
+    </div>
+    <div id="load_more" class="post-list">
+        <button class="load_more_button" onclick ="load_more_list()">加载更多</button>
+    </div>
 </div><!-- end #main-->
 
-<?php $this->need('sidebar.php'); ?>
+<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8">
+    <div id="post">
+    </div>
+</div>
+<?php //$this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>
