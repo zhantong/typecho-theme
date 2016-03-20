@@ -1,6 +1,6 @@
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
     <?php while($this->next()): ?>
-        <article class="post">
+        <article class="post-brif">
             <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
             <div class="post-excerpt">
                 <p><small><?php $this->excerpt(); ?></small></p>
