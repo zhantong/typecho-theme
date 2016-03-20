@@ -6,9 +6,9 @@
                 <p><small><?php $this->excerpt(); ?></small></p>
             </div>
             <ul class="post-meta list-inline clearfix">
-                <li><span class="label label-default"><?php $this->date('Y-m-d'); ?></span></li>
-                <li><span class="label label-info"><?php $this->category(', '); ?></span></li>
-                <li class="pull-right"><a href="<?php $this->permalink() ?>#comments">评论 <span class="badge"><?php $this->commentsNum(); ?></span></a></li>
+                <li><small><span class="glyphicon glyphicon-calendar"><?php $this->date('Y-m-d'); ?></span></small></li>
+                <li><small><span class="glyphicon glyphicon-tag"><?php $this->category(', '); ?></span></small></li>
+                <li class="pull-right"><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
             </ul>
         </article>
     <?php endwhile; ?>
@@ -30,8 +30,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi auto-scroll" id="m-nav">
     <div class="post-list" id="main" >
     </div>
-    <div id="load_more" class="post-list">
-        <button class="load_more_button" onclick ="load_more_list()">加载更多</button>
+    <div class="progress">
+        <div id="load-more" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+            加载中...
+        </div>
     </div>
 </div><!-- end #main-->
 

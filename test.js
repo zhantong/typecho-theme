@@ -1,5 +1,6 @@
 var current_page = 0;
 function load_more_list(){
+    //alert($("#load_more_button").offset().top+$("#load_more_button").height()+" "+$(window).height());
     current_page ++;
     $.ajax({
         type:'get',
@@ -16,7 +17,14 @@ $(document).ready(function() {
         load_post($(this).attr('href'));
         return false;
     });
+    $('#m-nav').scroll(function() {
+        if($("#load-more").offset().top+$("#load-more").height()-$(window).height()<3){
+            load_more_list();
+        }
+    });
+    $('#m-nav').scroll();
 });
+
 
 function load_post(post_url){
     $.ajax({
