@@ -1,3 +1,12 @@
+#sidebar.affix-top {
+    position: static;
+}
+
+#sidebar.affix {
+    position: fixed;
+    top: 80px;
+}
+/*
 html, body {
     height: 100%;
 }
@@ -21,7 +30,7 @@ html, body {
 }
 
 .box {
-    bottom: 0; /* increase for footer use */
+    bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
@@ -51,7 +60,7 @@ html, body {
 .post-list,.auto-scroll:hover{
     visibility: visible;
 }
-
+*/
 
 @font-face {
   font-family: octicons-anchor;
