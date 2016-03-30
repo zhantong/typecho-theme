@@ -16,6 +16,7 @@ function load_more_list(){
 }
 $(document).ready(function() {
     $('#body').offset({'top':$('#header').height()});
+    $('#navigation').offset({'top':$('#header').height()});
     //load_more_list();
     $(document).on('click','.post-url',function(){
         load_page($(this).attr('href'));
@@ -41,6 +42,7 @@ $(document).ready(function() {
         load_page($(this).attr('href'));
         return false;
     });
+    $('#more-post').click();
 });
 
 $('#sidebar').affix({

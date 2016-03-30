@@ -1,11 +1,20 @@
-#sidebar.affix-top {
-    position: static;
+#navigation{
+    position: fixed;
+}
+@media (min-width: 767px) {
+    .dropdown-menu{
+        display: block;
+    }
+    #dropdownMenu1 span{
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    #logo{
+        display: none;
+    }
 }
 
-#sidebar.affix {
-    position: fixed;
-    top: 80px;
-}
 /*
 html, body {
     height: 100%;

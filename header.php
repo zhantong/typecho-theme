@@ -32,6 +32,7 @@
     <!--[if lt IE 8]>
         <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
     <![endif]-->
+    <!--
         <nav id="header" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -72,19 +73,37 @@
                     </nav>
                 </div>
             </div>
-        </nav><!-- end #header -->
-        <div id="body">
+        </nav>
+    -->
+        <div id="body" class="container-fluid">
             <div class="row">
+                <div id="navigation" class="col-sm-2 col-md-2">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
+                            <span>Title</span>
+                            <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
+                        </a>
+                        <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="<?php $this->options->siteUrl(); ?>" id="more-post">文章列表</a></li>
+                            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                            <?php while($pages->next()): ?>
+                                <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
+                                    <li>
+                                        <a class="page" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                            <li>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="输入关键字搜索">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default">搜索</button>
+                                    </span>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-2 col-md-2">
-                    <ul id="sidebar" class="nav nav-pills nav-stacked affix">
-                        <li><a href="<?php $this->options->siteUrl(); ?>" id="more-post">文章列表</a></li>
-                        <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                        <?php while($pages->next()): ?>
-                            <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
-                                <li>
-                                    <a class="page" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                                </li>
-                            <?php endif; ?>
-                        <?php endwhile; ?>
-                    </ul>
+                    <!-- Placeholder - keep empty -->
                 </div>
