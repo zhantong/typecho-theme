@@ -1,4 +1,5 @@
-<?php if(isset($_GET['type']) and $_GET['type'] == 'ajax'):  ?>
+<?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
+    <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
     <article class="post">
         <h1 class="post-title"><?php $this->title() ?></h1>
         <ul class="post-meta list-inline">
@@ -19,18 +20,8 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
-<div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi auto-scroll" id="m-nav">
-    <div class="post-list" id="main" >
-    </div>
-    <div class="progress">
-        <div id="load-more" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-            加载中...
-        </div>
-    </div>
-</div><!-- end #main-->
-
-<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8">
-    <div id="post">
+<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8" id="m-nav">
+    <div id="main">
         <article class="post">
             <h1 class="post-title"><?php $this->title() ?></h1>
             <ul class="post-meta list-inline">
@@ -46,10 +37,5 @@
             <?php $this->need('comments.php'); ?>
         </article>
     </div>
-</div>
 
-
-
-
-<?php //$this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>

@@ -1,4 +1,5 @@
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
+    <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
     <?php while($this->next()): ?>
         <article class="post-brif">
             <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
@@ -27,25 +28,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
-<?php if(false): ?>
-<div class="column col-xs-12 col-sm-4 col-md-4 col-lg-4 post-navi auto-scroll hidden-xs" id="m-nav">
-    <div class="post-list" id="main" >
-    </div>
-    <div class="progress">
-        <div id="load-more" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-            加载中...
-        </div>
-    </div>
-</div><!-- end #main-->
-<?php endif ?>
 <div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8" id="m-nav">
     <div id="main">
     </div>
-    <div class="progress">
-        <div id="load-more" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-            加载中...
-        </div>
-    </div>
-</div>
-<?php //$this->need('sidebar.php'); ?>
+
 <?php $this->need('footer.php'); ?>
