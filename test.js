@@ -14,6 +14,20 @@ function load_more_list(){
         }
     });
 }
+function process_post_list(){
+    current_page = 0;
+    $('#load-more').remove();
+    $('#main').empty();
+    $('#toc-bar').hide();
+    load_more_list();
+    load_more_list();
+    $(window).scroll(function() {
+        //console.log($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop());
+        if($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop()<3){
+            load_more_list();
+        }
+    });
+}
 $(document).ready(function() {
     $('#body').offset({'top':$('#header').height()});
     $('#navigation').offset({'top':$('#header').height()});
@@ -23,18 +37,7 @@ $(document).ready(function() {
         return false;
     });
     $(document).on('click','#more-post',function(){
-        current_page = 0;
-        $('#load-more').remove();
-        $('#main').empty();
-        load_more_list();
-        load_more_list();
-        $(window).scroll(function() {
-            //console.log($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop());
-            if($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop()<3){
-                load_more_list();
-            }
-        });
-        //window.history.pushState({"pageTitle":document.title},"", $('#logo').attr('href'));
+        process_post_list()
         return false;
     });
     $('#sidebar .page-url').click(function(){

@@ -8,6 +8,7 @@
 #navi{
     position: fixed;
     width:inherit;
+    padding: inherit;
     height: 100%;
     background-color: #C0C0C0;
 }
@@ -735,11 +736,12 @@ html, body {
 #toc-bar{
     position: fixed;
     width: inherit;
+    padding: inherit;
     height: 100%;
 }
 
 #toc {
-    padding: 20px 10px;
+    padding-right:10px;
 }
 
 #toc ul {
