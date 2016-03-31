@@ -12,7 +12,7 @@
         <section class="widget">
             <h3 class="widget-title"><?php _e('最新文章'); ?></h3>
             <ul class="widget-list">
-                <?php $this->widget('Widget_Contents_Post_Recent')->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
+                <?php $this->widget('Widget_Contents_Post_Recent')->parse('<li><a class="post-url" href="{permalink}">{title}</a></li>'); ?>
             </ul>
         </section>
     <?php endif; ?>
@@ -22,7 +22,7 @@
             <ul class="widget-list">
                 <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
                 <?php while($comments->next()): ?>
-                    <li><a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?></li>
+                    <li><a class="post-url" href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?></li>
                 <?php endwhile; ?>
             </ul>
         </section>

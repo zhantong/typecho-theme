@@ -5,7 +5,7 @@
         <?php $this->related(5)->to($relatedPosts); ?>
         <ul class="list-group">
             <?php while ($relatedPosts->next()): ?>
-                <li class="list-group-item"><a href="<?php $relatedPosts->permalink(); ?>" title="<?php $relatedPosts->title(); ?>"><?php $relatedPosts->title(); ?></a></li>
+                <li class="list-group-item"><a class="post-url" href="<?php $relatedPosts->permalink(); ?>" title="<?php $relatedPosts->title(); ?>"><?php $relatedPosts->title(); ?></a></li>
             <?php endwhile; ?>
         </ul>
     </section>
@@ -14,8 +14,8 @@
 <?php if (!empty($this->options->secondbarPost) && in_array('ShowPrevNextPosts', $this->options->secondbarPost)): ?>
     <section id="prev-next-posts">
         <ul class="list-group">
-            <li>上一篇: <?php $this->thePrev('%s','没有了'); ?></li>
-            <li>下一篇: <?php $this->theNext('%s','没有了'); ?></li>
+            <li>上一篇: <?php thePrev($this,'没有了'); ?></li>
+            <li>下一篇: <?php theNext($this,'没有了'); ?></li>
         </ul>
     </section>
 <?php endif; ?>

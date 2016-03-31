@@ -37,6 +37,18 @@ $(document).ready(function() {
         load_page($(this).attr('href'),'post');
         return false;
     });
+    $(document).on('click','#toc-bar .category a',function(){
+        load_page($(this).attr('href'),'tag');
+        return false;
+    });
+    $(document).on('click','#main .category a',function(){
+        load_page($(this).attr('href'),'tag');
+        return false;
+    });
+    $(document).on('click','#main .tag a',function(){
+        load_page($(this).attr('href'),'tag');
+        return false;
+    });
     $(document).on('click','#more-post',function(){
         process_post_list()
         return false;
@@ -118,6 +130,11 @@ function process_content(msg,type){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
         $('#main').html($(msg).filter('article').html());
+    }
+    else if(type=='tag'){
+        $('#show-in-post').hide();
+        $('#show-not-in-post').show();
+        $('#main').html(msg);
     }
 }
 window.onpopstate = function(event){
