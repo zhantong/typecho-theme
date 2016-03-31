@@ -1,7 +1,18 @@
 body {
     position: relative;
 }
-#navigation{
+.dropdown-menu{
+    min-width: 0;
+    box-shadow: none;
+    border: none;
+    background-color:inherit;
+    position: relative;
+}
+#navi{
+    position: fixed;
+    width:inherit;
+    height: 100%;
+    background-color: #C0C0C0;
 }
 @media (min-width: 767px) {
     .dropdown-menu{

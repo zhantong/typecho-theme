@@ -76,35 +76,36 @@
             </div>
         </nav>
     -->
-        <div id="body" class="container-fluid">
+        <div id="body">
             <div class="row">
-                <div id="navigation" class="col-sm-2 col-md-2">
-                    <div class="affix">
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
-                            <span>Title</span>
-                            <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
-                        </a>
-                        <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="<?php $this->options->siteUrl(); ?>" id="more-post">文章列表</a></li>
-                            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                            <?php while($pages->next()): ?>
-                                <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
-                                    <li>
-                                        <a class="page" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
-                            <li>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="输入关键字搜索">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-default">搜索</button>
-                                    </span>
-                                </div>
-                            </li>
+                <div class="col-sm-1 col-md-1">
+                    <div id="navi">
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
+                                <span>Title</span>
+                                <a id="logo" href="<?php $this->options->siteUrl(); ?>"><p class="text-center"><strong class="lead"><?php $this->options->title() ?></strong></p></a>
+                                <p class="text-center"><small><em><?php $this->options->description() ?></em></small></p>
+                            </a>
+                            <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="<?php $this->options->siteUrl(); ?>" id="more-post">文章列表</a></li>
+                                <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                                <?php while($pages->next()): ?>
+                                    <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
+                                        <li>
+                                            <a class="page" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                <?php endwhile; ?>
+                                <li>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="输入关键字搜索">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-default">搜索</button>
+                                        </span>
+                                    </div>
+                                </li>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2">
