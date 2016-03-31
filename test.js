@@ -42,7 +42,12 @@ $(document).ready(function() {
         load_page($(this).attr('href'));
         return false;
     });
-    $('#more-post').click();
+    if($('#main').is(':empty')){
+        $('#more-post').click();
+    }
+    $('#toc').toc({
+        'container':'#main .post-content'
+    });
 });
 
 $('#sidebar').affix({
@@ -89,6 +94,9 @@ function load_page(the_url){
             $('#main').html(msg);
             document.title = $(msg).filter('#content-title').text();
             window.history.pushState({"html":msg,"pageTitle":document.title},"", the_url);
+            $('#toc').toc({
+                'container':'#main .post-content'
+            });
         }
     });
 }

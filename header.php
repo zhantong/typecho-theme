@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="<?php $this->options->themeUrl('test.css'); ?>">
         <script src="<?php $this->options->themeUrl('jquery/jquery-2.2.2.js'); ?>"></script>
         <script src="<?php $this->options->themeUrl('bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php $this->options->themeUrl('toc.js'); ?>"></script>
         <script src="<?php $this->options->themeUrl('test.js'); ?>"></script>
 
         <!--[if lt IE 9]>
@@ -106,4 +107,7 @@
                 </div>
                 <div class="col-sm-2 col-md-2">
                     <!-- Placeholder - keep empty -->
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    <div id="toc" class="affix"></div>
                 </div>
