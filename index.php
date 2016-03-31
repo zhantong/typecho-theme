@@ -28,7 +28,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
-<div class="column col-sm-6 col-md-6 col-lg-6 fill" id="m-nav">
+<div class="col-sm-6 col-md-6 col-lg-6" id="m-nav">
     <div id="main"></div>
 
 <?php $this->need('footer.php'); ?>

@@ -2,7 +2,6 @@ body {
     position: relative;
 }
 #navigation{
-    position: fixed;
 }
 @media (min-width: 767px) {
     .dropdown-menu{

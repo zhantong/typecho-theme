@@ -79,6 +79,7 @@
         <div id="body" class="container-fluid">
             <div class="row">
                 <div id="navigation" class="col-sm-2 col-md-2">
+                    <div class="affix">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
                             <span>Title</span>
@@ -104,9 +105,7 @@
                             </li>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <!-- Placeholder - keep empty -->
+                    </div>
                 </div>
                 <div class="col-sm-2 col-md-2">
                     <div id="toc" class="affix"></div>

@@ -20,7 +20,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
-<div class="column col-xs-12 col-sm-8 col-md-8 ol-lg-8" id="m-nav">
+<div class="column col-xs-12 col-sm-6 col-md-6 ol-lg-6" id="m-nav">
     <div id="main">
         <article class="post">
             <h1 class="post-title"><?php $this->title() ?></h1>
