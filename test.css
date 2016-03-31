@@ -728,6 +728,10 @@ html, body {
   border-color: #4183c4;
 }
 
+.toc-item{
+    border-bottom: 1px solid #CCC;
+}
+
 #toc-bar{
     position: fixed;
     width: inherit;

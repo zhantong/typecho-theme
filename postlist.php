@@ -1,8 +1,10 @@
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
     <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
-    <ul class="listing">
-        <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
-    </ul>
+    <article>
+        <ul class="listing">
+            <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
+        </ul>
+    </article>
     <?php return; //完成ajax方式返回，退出此页面?>
 <?php endif ?>
 

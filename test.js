@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('#navigation').offset({'top':$('#header').height()});
     //load_more_list();
     $(document).on('click','.post-url',function(){
-        load_page($(this).attr('href'));
+        load_page($(this).attr('href'),'post');
         return false;
     });
     $(document).on('click','#more-post',function(){
@@ -37,9 +37,9 @@ $(document).ready(function() {
         //window.history.pushState({"pageTitle":document.title},"", $('#logo').attr('href'));
         return false;
     });
-    $('#sidebar .page').click(function(){
+    $('#sidebar .page-url').click(function(){
         //console.log($(this).attr('href'));
-        load_page($(this).attr('href'));
+        load_page($(this).attr('href'),'page');
         return false;
     });
     if($('#main').is(':empty')){
@@ -80,7 +80,7 @@ function clean_up(){
         window.history.pushState({"pageTitle":document.title},"", document.url);
     }
 }
-function load_page(the_url){
+function load_page(the_url,type){
     $.ajax({
         beforeSend:function(){
             clean_up();
@@ -91,14 +91,25 @@ function load_page(the_url){
         success:function(msg){
             //console.log(msg);
             //console.log($(msg).filter('#content-title').text());
-            $('#main').html(msg);
+            process_content(msg,type);
             document.title = $(msg).filter('#content-title').text();
             window.history.pushState({"html":msg,"pageTitle":document.title},"", the_url);
-            $('#toc').toc({
-                'container':'#main .post-content'
-            });
         }
     });
+}
+function process_content(msg,type){
+    if(type=='post'){
+        $('#toc-bar').show();
+        $('#main').html($(msg).filter('article').html());
+        $('#related-posts').html($(msg).filter('#related').html());
+        $('#toc').toc({
+            'container':'#main .post-content'
+        });
+    }
+    else if(type=='page'){
+        $('#toc-bar').hide();
+        $('#main').html($(msg).filter('article').html());
+    }
 }
 window.onpopstate = function(event){
     if(event.state){

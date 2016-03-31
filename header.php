@@ -92,7 +92,7 @@
                                 <?php while($pages->next()): ?>
                                     <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
                                         <li>
-                                            <a class="page" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                                            <a class="page-url" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                                         </li>
                                     <?php endif; ?>
                                 <?php endwhile; ?>
@@ -110,6 +110,13 @@
                 </div>
                 <div class="col-sm-2 col-md-2">
                     <div id="toc-bar">
-                        <div id="toc"></div>
+                        <div class="toc-item">
+                            <span>目录</span>
+                            <div id="toc"></div>
+                        </div>
+                        <div class="toc-item">
+                            <span>相关文章</span>
+                            <div id="related-posts"></div>
+                        </div>
                     </div>
                 </div>
