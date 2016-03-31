@@ -109,5 +109,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2">
-                    <div id="toc" class="affix"></div>
+                    <div id="toc-bar">
+                        <div id="toc"></div>
+                    </div>
                 </div>
