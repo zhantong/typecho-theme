@@ -110,13 +110,12 @@
                 </div>
                 <div class="col-sm-2 col-md-2">
                     <div id="toc-bar">
-                        <div class="toc-item">
-                            <span>目录</span>
+                        <div id="show-in-post">
                             <div id="toc"></div>
+                            <?php $this->need('showinpost.php'); ?>
                         </div>
-                        <div class="toc-item">
-                            <span>相关文章</span>
-                            <div id="related-posts"></div>
+                        <div id="show-not-in-post">
+                            <?php $this->need('shownotinpost.php'); ?>
                         </div>
                     </div>
                 </div>

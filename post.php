@@ -14,14 +14,7 @@
         </div>
         <?php $this->need('comments.php'); ?>
     </article>
-    <div id="related">
-        <?php $this->related(5)->to($relatedPosts); ?>
-        <ul class="list-group">
-            <?php while ($relatedPosts->next()): ?>
-                <li class="list-group-item"><a href="<?php $relatedPosts->permalink(); ?>" title="<?php $relatedPosts->title(); ?>"><?php $relatedPosts->title(); ?></a></li>
-            <?php endwhile; ?>
-        </ul>
-    </div>
+    <?php $this->need('showinpost.php'); ?>
     <?php return; //完成ajax方式返回，退出此页面?>
 <?php endif ?>
 

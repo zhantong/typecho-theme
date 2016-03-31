@@ -18,7 +18,8 @@ function process_post_list(){
     current_page = 0;
     $('#load-more').remove();
     $('#main').empty();
-    $('#toc-bar').hide();
+    $('#show-in-post').hide();
+    $('#show-not-in-post').show();
     load_more_list();
     load_more_list();
     $(window).scroll(function() {
@@ -102,15 +103,20 @@ function load_page(the_url,type){
 }
 function process_content(msg,type){
     if(type=='post'){
-        $('#toc-bar').show();
+        $('#show-in-post').show();
+        $('#show-not-in-post').hide();
         $('#main').html($(msg).filter('article').html());
-        $('#related-posts').html($(msg).filter('#related').html());
+        $('#related-posts').remove();
+        $('#show-in-post').append($(msg).filter('#related-posts'));
+        $('#prev-next-posts').remove();
+        $('#show-in-post').append($(msg).filter('#prev-next-posts'));
         $('#toc').toc({
             'container':'#main .post-content'
         });
     }
     else if(type=='page'){
-        $('#toc-bar').hide();
+        $('#show-in-post').hide();
+        $('#show-not-in-post').show();
         $('#main').html($(msg).filter('article').html());
     }
 }

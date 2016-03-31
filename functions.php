@@ -25,6 +25,16 @@ function themeConfig($form)
     $form->addInput($sidebarBlock->multiMode());
     $showPages = new Typecho_Widget_Helper_Form_Element_Checkbox('showPages', $pagesArray, array_keys($pagesArray), _t('独立页面显示'));
     $form->addInput($showPages->multiMode());
+    $secondbarPage = new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPage', $list,
+    array('ShowCategory', 'ShowArchive'), _t('第二栏显示（非文章页面）'));
+    $form->addInput($secondbarPage->multiMode());
+    $secondbarList=array(
+        'ShowRelatedPosts' => _t('显示相关文章'),
+        'ShowPrevNextPosts' => _t('显示上一篇/下一篇'),
+    );
+    $secondbarPost=new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPost', $secondbarList,
+    array('ShowRelatedPosts', 'ShowPrevNextPosts'), _t('第二栏显示（文章页面）'));
+    $form->addInput($secondbarPost->multiMode());
 }
 
 function PageToLinks($page)
