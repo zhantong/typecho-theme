@@ -1,3 +1,5 @@
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php include('common.php'); ?>
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
     <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
     <?php while($this->next()): ?>
@@ -15,20 +17,10 @@
     <?php endwhile; ?>
     <?php return; //完成ajax方式返回，退出此页面?>
 <?php endif ?>
+<?php $this->need('header.php'); ?>
 <?php
-/**
- * 这是 Typecho 0.9 系统的一套默认皮肤
- *
- * @package Typecho Replica Theme
- * @author Typecho Team
- * @version 1.2
- * @link http://typecho.org
- */
-
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
- $this->need('header.php');
- ?>
-<div class="col-sm-6 col-md-6 col-lg-6" id="m-nav">
-    <div id="main"></div>
-
+    echo $m_nav_head;
+    echo $main_head;
+    echo $main_tail;
+?>
 <?php $this->need('footer.php'); ?>

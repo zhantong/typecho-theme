@@ -1,59 +1,47 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php $this->setPageRow(1); ?>
-<?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
-    <a id="content-title" style="display:none"><?php $this->archiveTitle(array(
-        'category' => _t('分类 %s 下的文章'),
-        'search' => _t('包含关键字 %s 的文章'),
-        'tag' => _t('标签 %s 下的文章'),
-        'author' => _t('%s 发布的文章'),
-    ), '', ' - '); ?><?php $this->options->title(); ?></a>
-    <?php if ($this->have()): ?>
-        <article>
-            <ul class="listing">
-                <?php $this->widget('Widget_Archive@'.$this->getArchiveType(), 'pageSize=10000&type='.$this->getArchiveType(),'slug='.$this->getArchiveSlug())->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
-            </ul>
-        </article>
-    <?php else: ?>
-        <article class="post">
-            <h2 class="post-title"><?php _e('没有找到内容'); ?></h2>
-        </article>
-    <?php endif; ?>
-    <?php return; //完成ajax方式返回，退出此页面?>
-<?php endif ?>
-<?php $this->need('header.php'); ?>
-
-<div class="col-mb-12 col-8" id="main" role="main">
+<?php include('common.php'); ?>
+<?php
+    if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'){
+        $is_ajax=true;
+    }
+    else{
+        $is_ajax=false;
+    }
+?>
+<?php if(!$is_ajax):  ?>
+    <?php
+        $this->need('header.php');
+        echo $m_nav_head;
+        echo $main_head;
+    ?>
     <h3 class="archive-title"><?php $this->archiveTitle(array(
         'category' => _t('分类 %s 下的文章'),
         'search' => _t('包含关键字 %s 的文章'),
         'tag' => _t('标签 %s 下的文章'),
         'author' => _t('%s 发布的文章'),
     ), '', ''); ?></h3>
-    <?php print_r($this);?>
-    <script>alert("<?php print_r($this->getArchiveSlug());?>"+"\t"+"<?php print_r($this->getArchiveType());?>")</script>
-    <?php if ($this->have()&&false): ?>
-        <?php while ($this->next()): ?>
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                <h2 class="post-title" itemprop="name headline"><a itemtype="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-                <ul class="post-meta">
-                    <li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
-                    <li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('F j, Y'); ?></time></li>
-                    <li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-                    <li itemprop="interactionCount"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-                </ul>
-                <div class="post-content" itemprop="articleBody">
-                    <?php $this->content('- 阅读剩余部分 -'); ?>
-                </div>
-            </article>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <article class="post">
-            <h2 class="post-title"><?php _e('没有找到内容'); ?></h2>
-        </article>
-    <?php endif; ?>
-
-    <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
-</div><!-- end #main -->
-
-<?php $this->need('sidebar.php'); ?>
-<?php $this->need('footer.php'); ?>
+<?php else:  ?>
+    <a id="content-title" style="display:none"><?php $this->archiveTitle(array(
+        'category' => _t('分类 %s 下的文章'),
+        'search' => _t('包含关键字 %s 的文章'),
+        'tag' => _t('标签 %s 下的文章'),
+        'author' => _t('%s 发布的文章'),
+    ), '', ' - '); ?><?php $this->options->title(); ?></a>
+<?php endif ?>
+<?php if ($this->have()): ?>
+    <article>
+        <ul class="listing">
+            <?php $this->widget('Widget_Archive@'.$this->getArchiveType(), 'pageSize=10000&type='.$this->getArchiveType(),'slug='.$this->getArchiveSlug())->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
+        </ul>
+    </article>
+<?php else: ?>
+    <article class="post">
+        <h2 class="post-title"><?php _e('没有找到内容'); ?></h2>
+    </article>
+<?php endif; ?>
+<?php if(!$is_ajax):  ?>
+    <?php
+        echo $main_tail;
+        $this->need('footer.php');
+    ?>
+<?php endif ?>
