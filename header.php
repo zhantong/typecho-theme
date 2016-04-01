@@ -125,10 +125,10 @@
                             <?php $this->need('crumbpatch.php'); ?>
                         </div>
                         <div class="col-sm-4 col-md-4">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="s" placeholder="输入关键字搜索">
+                            <div class="input-group" id="search">
+                                <input type="text" class="form-control" placeholder="输入关键字搜索">
                                 <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-default">搜索</button>
+                                    <button class="btn btn-default">搜索</button>
                                 </span>
                             </div>
                         </div>

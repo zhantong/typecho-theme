@@ -31,7 +31,14 @@
 <?php if ($this->have()): ?>
     <article>
         <ul class="listing">
-            <?php $this->widget('Widget_Archive@'.$this->getArchiveType(), 'pageSize=10000&type='.$this->getArchiveType(),'slug='.$this->getArchiveSlug())->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
+            <?php
+                if($this->is('search')){
+                    $this->widget('Widget_Archive@'.$this->getArchiveType(), 'pageSize=10000&type='.$this->getArchiveType(),'keywords='.$this->getKeywords())->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>');
+                }
+                else{
+                    $this->widget('Widget_Archive@'.$this->getArchiveType(), 'pageSize=10000&type='.$this->getArchiveType(),'slug='.$this->getArchiveSlug())->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>');
+                }
+            ?>
         </ul>
     </article>
 <?php else: ?>

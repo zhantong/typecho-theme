@@ -67,6 +67,11 @@ $(document).ready(function() {
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
     }
+    $('#search button').click(function(){
+        keywords=$('#search input').val();
+        the_url=$('#logo').attr('href') + "search/" + keywords+"/";
+        load_page(the_url,'tag');
+    });
 });
 function clean_up(){
     if($('#load-more').length){
