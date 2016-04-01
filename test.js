@@ -103,7 +103,7 @@ function process_content(msg,type){
     if(type=='post'){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
-        $('#main').html($(msg).filter('article').html());
+        $('#main').html($(msg).filter('article'));
         $('#related-posts').remove();
         $('#show-in-post').append($(msg).filter('#related-posts'));
         $('#prev-next-posts').remove();
@@ -115,12 +115,12 @@ function process_content(msg,type){
     else if(type=='page'){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
-        $('#main').html($(msg).filter('article').html());
+        $('#main').html($(msg).filter('article'));
     }
     else if(type=='tag'){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
-        $('#main').html($(msg).filter('article').html());
+        $('#main').html($(msg).filter('article'));
     }
 }
 window.onpopstate = function(event){
