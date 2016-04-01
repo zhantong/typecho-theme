@@ -6,6 +6,7 @@
             <?php _e('由 <a href="http://www.typecho.org">Typecho</a> 强力驱动'); ?>.
         </footer><!-- end #footer -->
     </div>
+</div>
     <?php $this->need('sidebar.php'); ?>
 </div>
     </body>

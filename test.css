@@ -5,12 +5,20 @@
     background-color:inherit;
     position: relative;
 }
-#navi{
+#test{
     position: fixed;
     width:inherit;
-    padding: inherit;
+    height: 100%;
+}
+
+#navi{
     height: 100%;
     background-color: #C0C0C0;
+}
+#toc-bar{
+}
+
+#content{
 }
 @media (min-width: 767px) {
     .dropdown-menu{
@@ -733,12 +741,7 @@ html, body {
     border-bottom: 1px solid #CCC;
 }
 
-#toc-bar{
-    position: fixed;
-    width: inherit;
-    padding: inherit;
-    height: 100%;
-}
+
 
 #toc {
     padding-right:10px;
