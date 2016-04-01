@@ -35,32 +35,21 @@ function process_post_list(){
     });
 }
 $(document).ready(function() {
-    $('#body').offset({'top':$('#header').height()});
-    $('#navigation').offset({'top':$('#header').height()});
-    //load_more_list();
     $(document).on('click','.post-url',function(){
         load_page($(this).attr('href'),'post');
         return false;
     });
-    $(document).on('click','#toc-bar .category a',function(){
+    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a',function(){
         load_page($(this).attr('href'),'tag');
-        return false;
-    });
-    $(document).on('click','#main .category a',function(){
-        load_page($(this).attr('href'),'tag');
-        return false;
-    });
-    $(document).on('click','#main .tag a',function(){
-        load_page($(this).attr('href'),'tag');
-        return false;
-    });
-    $(document).on('click','#more-post',function(){
-        process_post_list()
         return false;
     });
     $('#sidebar .page-url').click(function(){
         //console.log($(this).attr('href'));
         load_page($(this).attr('href'),'page');
+        return false;
+    });
+    $(document).on('click','#more-post',function(){
+        process_post_list();
         return false;
     });
     if($('#main').is(':empty')){
@@ -78,30 +67,6 @@ $(document).ready(function() {
         $('#show-not-in-post').show();
     }
 });
-
-$('#sidebar').affix({
-      offset: {
-        top: 200
-      }
-});
-/*
-function load_post(post_url){
-    $.ajax({
-        beforeSend:function(){
-            $('#post').empty();
-        },
-        type:'get',
-        url:post_url,
-        data:{'type':'ajax'},
-        success:function(msg){
-
-            $('#post').html(msg);
-            document.title = $(msg).find('.post-title').text();
-            window.history.pushState({"html":msg,"pageTitle":document.title},"", post_url);
-        }
-    });
-}
-*/
 function clean_up(){
     if($('#load-more').length){
         $(window).unbind('scroll');
