@@ -33,49 +33,6 @@
     <!--[if lt IE 8]>
         <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
     <![endif]-->
-    <!--
-        <nav id="header" class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a id="logo" class="navbar-brand" href="<?php $this->options->siteUrl(); ?>">
-                        <?php if ($this->options->logoUrl): ?>
-                        <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
-                        <?php endif; ?>
-                        <?php $this->options->title() ?>
-                    </a>
-            	    <p class="navbar-text"><?php $this->options->description() ?></p>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <nav id="nav-menu" class="clearfix" role="navigation">
-                        <ul class="nav navbar-nav">
-                            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                            <?php while($pages->next()): ?>
-                                <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
-                                    <li>
-                                        <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
-                        </ul>
-                        <form class="navbar-form navbar-right" method="post" action="./" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="输入关键字搜索">
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-default">搜索</button>
-                                </span>
-                            </div>
-                        </form>
-                    </nav>
-                </div>
-            </div>
-        </nav>
-    -->
         <div id="body">
             <div class="row-fluid">
                 <div class="col-sm-3 col-md-3">
@@ -97,14 +54,6 @@
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
-                                    <li>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="输入关键字搜索">
-                                            <span class="input-group-btn">
-                                                <button type="submit" class="btn btn-default">搜索</button>
-                                            </span>
-                                        </div>
-                                    </li>
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,6 @@
     <h1 class="post-title"><?php $this->title() ?></h1>
     <ul class="post-meta list-inline">
         <li><small><span class="glyphicon glyphicon-calendar"><?php $this->date('Y-m-d'); ?></span></small></li>
-        <li><span class="glyphicon glyphicon-user"><a href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></span></li>
         <li><small><span class="glyphicon glyphicon-tag category"><?php $this->category(', '); ?></span></small></li>
         <li><small><span class="glyphicon glyphicon-paperclip tag"><?php $this->tags(', ', true, 'none'); ?></span></small></li>
         <li><a href="#comments"><span class="glyphicon glyphicon-comment"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
