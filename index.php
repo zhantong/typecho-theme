@@ -1,7 +1,9 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php include('common.php'); ?>
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
-    <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
+    <?php if($this->getCurrentPage()==0): ?>
+        <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
+    <?php endif ?>
     <?php while($this->next()): ?>
         <article class="post-brif">
             <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
