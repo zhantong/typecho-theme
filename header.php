@@ -83,11 +83,11 @@
                         <div class="dropdown">
                             <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
                                 <span>Title</span>
-                                <a id="logo" href="<?php $this->options->siteUrl(); ?>"><p class="text-center"><strong class="lead"><?php $this->options->title() ?></strong></p></a>
+                                <a id="logo" class="main-page" href="<?php $this->options->siteUrl(); ?>"><p class="text-center"><strong class="lead"><?php $this->options->title() ?></strong></p></a>
                                 <p class="text-center"><small><em><?php $this->options->description() ?></em></small></p>
                             </a>
                             <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="<?php $this->options->siteUrl(); ?>" id="more-post">文章列表</a></li>
+                                <li><a href="<?php $this->options->siteUrl(); ?>" class="main-page">文章列表</a></li>
                                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                                 <?php while($pages->next()): ?>
                                     <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
@@ -119,3 +119,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 ol-lg-6" id="m-nav">
+                    <div class="row">
+                        <div id="crumbs-patch" class="col-sm-8 col-md-8">
+                            <?php $this->need('crumbpatch.php'); ?>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="s" placeholder="输入关键字搜索">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main">

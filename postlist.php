@@ -18,11 +18,10 @@
 <?php if(!$is_ajax):  ?>
     <?php
         $this->need('header.php');
-        echo $m_nav_head;
-        echo $main_head;
     ?>
 <?php else:  ?>
     <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
+    <?php $this->need('crumbpatch.php'); ?>
 <?php endif ?>
 <article>
     <ul class="listing">

@@ -11,8 +11,6 @@
 <?php if(!$is_ajax):  ?>
     <?php
         $this->need('header.php');
-        echo $m_nav_head;
-        echo $main_head;
     ?>
     <h3 class="archive-title"><?php $this->archiveTitle(array(
         'category' => _t('分类 %s 下的文章'),
@@ -27,7 +25,9 @@
         'tag' => _t('标签 %s 下的文章'),
         'author' => _t('%s 发布的文章'),
     ), '', ' - '); ?><?php $this->options->title(); ?></a>
+    <?php $this->need('crumbpatch.php'); ?>
 <?php endif ?>
+
 <?php if ($this->have()): ?>
     <article>
         <ul class="listing">

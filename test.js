@@ -10,9 +10,10 @@ function load_more_list(){
         url:$('#logo').attr('href') + "page/" + current_page+"/",
         data:{'load_type':'ajax'},
         success:function(msg){
-            $('#main').append(msg);
+            $('#main').append($(msg).filter('.articles').html());
             if($(msg).filter('#content-title').length){
                 //console.log($(msg).filter('#content-title').text());
+                $('#crumbs-patch').html($(msg).filter('.crumbs-patch').html());
                 document.title = $(msg).filter('#content-title').text();
                 window.history.pushState({"pageTitle":document.title},"", $('#logo').attr('href'));
             }
@@ -39,7 +40,7 @@ $(document).ready(function() {
         load_page($(this).attr('href'),'post');
         return false;
     });
-    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a',function(){
+    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a,#crumbs-patch a:not(.main-page)',function(){
         load_page($(this).attr('href'),'tag');
         return false;
     });
@@ -48,12 +49,12 @@ $(document).ready(function() {
         load_page($(this).attr('href'),'page');
         return false;
     });
-    $(document).on('click','#more-post',function(){
+    $(document).on('click','.main-page',function(){
         process_post_list();
         return false;
     });
-    if($('#main').is(':empty')){
-        $('#more-post').click();
+    if(!$.trim($('#main').html())){
+        process_post_list();
     }
     $('#toc').toc({
         'container':'#main .post-content'
@@ -92,6 +93,8 @@ function load_page(the_url,type){
     });
 }
 function process_content(msg,type){
+    //console.log(msg);
+    $('#crumbs-patch').html($(msg).filter('.crumbs-patch').html());
     if(type=='post'){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
@@ -112,7 +115,7 @@ function process_content(msg,type){
     else if(type=='tag'){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
-        $('#main').html(msg);
+        $('#main').html($(msg).filter('article').html());
     }
 }
 window.onpopstate = function(event){
