@@ -2,7 +2,7 @@ var current_page = 0;
 function load_more_list(){
     //alert($("#load_more_button").offset().top+$("#load_more_button").height()+" "+$(window).height());
     if(current_page===0){
-        $('#m-nav').append('<div id="load-more" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">加载中...</div>');
+        $('<button id="load-more" class="btn btn-primary btn-block">加载更多</button>').insertAfter('#main');
     }
     current_page ++;
     $.ajax({
@@ -17,6 +17,7 @@ function load_more_list(){
                 document.title = $(msg).filter('#content-title').text();
                 window.history.pushState({"pageTitle":document.title},"", $('#logo').attr('href'));
             }
+            $('#load-more').removeAttr('disabled').html('加载更多');
         }
     });
 }
@@ -27,7 +28,6 @@ function process_post_list(){
     $('#show-in-post').hide();
     $('#show-not-in-post').show();
     load_more_list();
-    load_more_list();
     $(window).scroll(function() {
         //console.log($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop());
         if($("#load-more").offset().top+$("#load-more").height()-$(window).height()-$(window).scrollTop()<3){
@@ -36,7 +36,7 @@ function process_post_list(){
     });
 }
 $(document).ready(function() {
-    $(document).on('click','.post-url',function(){
+    $(document).on('click','.post-url,#prev-next-posts a',function(){
         load_page($(this).attr('href'),'post');
         return false;
     });
@@ -52,6 +52,10 @@ $(document).ready(function() {
     $(document).on('click','.main-page',function(){
         process_post_list();
         return false;
+    });
+    $(document).on('click','#load-more',function(){
+        $(this).attr('disabled','disabled').html('加载中...');
+        load_more_list();
     });
     if(!$.trim($('#main').html())){
         process_post_list();
@@ -138,7 +142,7 @@ window.onpopstate = function(event){
             document.title = event.state.pageTitle;
         }
         else{
-            $('#more-post').click();
+            process_post_list();
         }
     }
 };

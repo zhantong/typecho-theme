@@ -14,8 +14,8 @@
 <?php if (!empty($this->options->secondbarPost) && in_array('ShowPrevNextPosts', $this->options->secondbarPost)): ?>
     <section id="prev-next-posts">
         <ul class="list-group">
-            <li>上一篇: <?php thePrev($this,'没有了'); ?></li>
-            <li>下一篇: <?php theNext($this,'没有了'); ?></li>
+            <li>上一篇: <?php $this->thePrev('%s','没有了'); ?></li>
+            <li>下一篇: <?php $this->theNext('%s','没有了'); ?></li>
         </ul>
     </section>
 <?php endif; ?>
