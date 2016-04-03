@@ -28,9 +28,9 @@
     <div class="post-content">
         <?php $this->content(); ?>
     </div>
-    <?php $this->need('comments.php'); ?>
     <?php $this->footer(); ?>
 </article>
+<?php $this->need('comments.php'); ?>
 <?php if($is_ajax):  ?>
     <?php $this->need('showinpost.php'); ?>
 <?php else: ?>

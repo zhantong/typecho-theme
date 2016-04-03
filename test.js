@@ -108,6 +108,7 @@ function process_content(msg,type){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
         $('#main').html($(msg).filter('article'));
+        $(msg).filter('#comments').insertAfter('#main article');
         $('#related-posts').remove();
         $('#show-in-post').append($(msg).filter('#related-posts'));
         $('#prev-next-posts').remove();

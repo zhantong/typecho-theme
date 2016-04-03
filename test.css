@@ -39,6 +39,10 @@
     border-right: 1px solid #CCC;
 }
 
+#m-nav article{
+    border-bottom: 4px solid #EEE;
+}
+
 /*
 html, body {
     height: 100%;
@@ -774,4 +778,26 @@ html, body {
     background: #336699;
     color: white;
     border-radius:2px;
+}
+
+
+.comment-list li{
+    border: 1px solid #EEE;
+    padding: 14px;
+    margin-top: 10px;
+}
+ol.comment-list{
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+.comment-list .comment-level-odd{
+    background: #FFF9E8;
+}
+.comment-list .comment-level-even{
+    background: #F6F6F3;
+}
+.comment-content p{
+    line-height: 1.5;
+    padding: 10px;
 }
