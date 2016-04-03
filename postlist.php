@@ -22,9 +22,17 @@
 <?php else:  ?>
     <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
 <?php endif ?>
+<?php $this->widget('Widget_Archive@index', 'pageSize=10000&type=index')->to($posts); ?>
 <article>
+    <h1 class="archive-title"><?php $this->archiveTitle('','',''); ?></h1>
     <ul class="listing">
-        <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->parse('<li>{year}-{month}-{day} : <a class="post-url" href="{permalink}">{title}</a></li>'); ?>
+        <?php while($posts->next()): ?>
+            <li class="list-group-item">
+                <small><em><?php $posts->date('Y-m-d'); ?></em></small>
+                <span class="badge"><?php $posts->viewsNum(); ?></span>
+                <a class="post-url" href="<?php $posts->permalink() ?>"><?php $posts->title() ?></a>
+            </li>
+        <?php endwhile; ?>
     </ul>
 </article>
 <?php if(!$is_ajax):  ?>
