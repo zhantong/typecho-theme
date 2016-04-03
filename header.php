@@ -35,15 +35,20 @@
     <![endif]-->
         <div id="body">
             <div class="row-fluid">
-                <div class="col-sm-3 col-md-3">
+                <div id="test-parent" class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
                     <div class="row" id="test">
-                        <div id="navi" class="col-sm-4 col-md-4">
+                        <div id="navi" class="col-sm-12 col-md-4">
                             <div class="dropdown">
-                                <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
-                                    <span>Title</span>
+                                <div id="site-intro-mobile">
+                                    <a class="btn btn-lg dropdown-toggle glyphicon glyphicon-home" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
+                                        <?php $this->options->title() ?>
+                                    </a>
+                                    <span><small><em><?php $this->options->description() ?></em></small></span>
+                                </div>
+                                <div id="site-intro">
                                     <a id="logo" class="main-page" href="<?php $this->options->siteUrl(); ?>"><p class="text-center"><strong class="lead"><?php $this->options->title() ?></strong></p></a>
                                     <p class="text-center"><small><em><?php $this->options->description() ?></em></small></p>
-                                </a>
+                                </div>
                                 <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="<?php $this->options->siteUrl(); ?>" id="mian-page-url" class="main-page text-center">文章列表</a></li>
                                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
@@ -54,24 +59,21 @@
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
-                                    <li>
+                                    <li class="dropdown-submenu text-center">
+                                        <a class="glyphicon glyphicon-search" href="#"></a>
+                                        <ul class="dropdown-menu" style="padding:0;border:0;">
+                                            <div class="input-group" id="search">
+                                                <input type="text" class="form-control" placeholder="输入关键字搜索">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default">搜索</button>
+                                                </span>
+                                            </div>
+                                        </ul>
                                     </li>
-                                </div>
-                                <div class="dropdown text-center">
-                                    <a class="glyphicon glyphicon-search" role="button" id="dropdown-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="padding:0;border:0;">
-                                        <div class="input-group" id="search">
-                                            <input type="text" class="form-control" placeholder="输入关键字搜索">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default">搜索</button>
-                                            </span>
-                                        </div>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-8 col-md-8">
+                        <div class="col-md-8 hidden-xs hidden-sm">
                             <div id="toc-bar">
                                 <div id="show-in-post">
                                     <div class="panel-group" role="tablist">
@@ -97,6 +99,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 ol-lg-6" id="m-nav">
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6" id="m-nav">
                     <div id="content">
                         <div id="main">
