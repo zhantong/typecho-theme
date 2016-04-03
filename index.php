@@ -13,10 +13,10 @@
                     <p><small><?php $this->excerpt(); ?></small></p>
                 </div>
                 <ul class="post-meta list-inline clearfix hidden-xs">
-                    <li><span class="glyphicon glyphicon-calendar" title="发表时间"><?php $this->date('Y-m-d'); ?></span></li>
+                    <li><span class="glyphicon glyphicon-calendar" title="发表时间"></span><?php $this->date('Y-m-d'); ?></li>
                     <li><span class="glyphicon glyphicon-fire" title="阅读量"></span> <span class="badge"><?php $this->viewsNum(); ?></span></li>
                     <li><span class="glyphicon glyphicon-bookmark" title="分类"><?php $this->category(', '); ?></span></li>
-                    <li><a href="#comments" title="评论数"><span class="glyphicon glyphicon-comment"></span> <span class="badge"><?php $this->commentsNum(); ?></span></a></li>
+                    <li><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment" title="评论"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
                 </ul>
             </article>
         <?php endwhile; ?>

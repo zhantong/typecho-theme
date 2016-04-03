@@ -36,7 +36,7 @@ function process_post_list(){
     });
 }
 $(document).ready(function() {
-    $(document).on('click','.post-url,#prev-next-posts a',function(){
+    $(document).on('click','.post-url,#prev-next-posts li a',function(){
         load_page($(this).attr('href'),'post');
         return false;
     });
@@ -58,7 +58,7 @@ $(document).ready(function() {
         load_more_list();
     });
     if(!$.trim($('#main').html())){
-        process_post_list();
+        $('#mian-page-url').click();
     }
     $('#toc').toc({
         'container':'#main .post-content'
@@ -143,7 +143,7 @@ window.onpopstate = function(event){
             document.title = event.state.pageTitle;
         }
         else{
-            process_post_list();
+            $('#mian-page-url').click();
         }
     }
 };

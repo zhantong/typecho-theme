@@ -55,9 +55,24 @@ function PageToLinks($page)
 {
     $content = $page->content;
     $title = $page->title;
-    echo "<h3 class='widget-title'>".$title.'</h3>';
-    $content = str_replace('<ul>', "<ul class='widget-list'>", $content);
-    echo $content;
+    $content = str_replace('<ul>', "<ul class='list-group'>", $content);
+    $content = str_replace('<li>', "<li class='list-group-item'>", $content);
+    echo<<<EOT
+    <div class="panel-group" role="tablist">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapse-list-page-heading">
+                <h3 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-page" aria-expanded="true" aria-controls="collapse-list-page">
+                        {$title}
+                    </a>
+                </h3>
+            </div>
+            <div id="collapse-list-page" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapse-list-page-heading">
+                {$content}
+            </div>
+        </div>
+    </div>
+EOT;
 }
 /*
 function themeFields($layout) {

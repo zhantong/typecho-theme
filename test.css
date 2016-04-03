@@ -12,6 +12,7 @@
 }
 
 #navi{
+    padding: 0;
     height: 100%;
     background-color: #C0C0C0;
 }
@@ -23,6 +24,7 @@
 @media (min-width: 767px) {
     .dropdown-menu{
         display: block;
+        width: 100%;
     }
     #dropdownMenu1 span{
         display: none;
@@ -41,6 +43,71 @@
 
 #m-nav article{
     border-bottom: 4px solid #EEE;
+}
+#sidebar a{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.toc-item{
+    border-bottom: 1px solid #CCC;
+}
+
+
+
+#toc {
+    padding:10px; 
+}
+
+#toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#toc li {
+    padding: 2px;
+}
+
+#toc a {
+    text-decoration: none;
+    display: block;
+}
+
+#toc .toc-h2 {
+    padding-left: 15px;
+}
+
+#toc .toc-h3 {
+    padding-left: 30px;
+}
+
+#toc .toc-active a {
+    background: #336699;
+    color: white;
+    border-radius:2px;
+}
+
+.comment-list li{
+    border: 1px solid #EEE;
+    padding: 14px;
+    margin-top: 10px;
+}
+ol.comment-list{
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+.comment-list .comment-level-odd{
+    background: #FFF9E8;
+}
+.comment-list .comment-level-even{
+    background: #F6F6F3;
+}
+.comment-content p{
+    line-height: 1.5;
+    padding: 10px;
 }
 
 /*
@@ -739,65 +806,4 @@ html, body {
   z-index: 1;
   position: relative;
   border-color: #4183c4;
-}
-
-.toc-item{
-    border-bottom: 1px solid #CCC;
-}
-
-
-
-#toc {
-    padding-right:10px;
-}
-
-#toc ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#toc li {
-    padding: 2px;
-}
-
-#toc a {
-    text-decoration: none;
-    display: block;
-}
-
-#toc .toc-h2 {
-    padding-left: 15px;
-}
-
-#toc .toc-h3 {
-    padding-left: 30px;
-}
-
-#toc .toc-active a {
-    background: #336699;
-    color: white;
-    border-radius:2px;
-}
-
-
-.comment-list li{
-    border: 1px solid #EEE;
-    padding: 14px;
-    margin-top: 10px;
-}
-ol.comment-list{
-    list-style: none;
-    padding: 0;
-    margin: 10px;
-}
-.comment-list .comment-level-odd{
-    background: #FFF9E8;
-}
-.comment-list .comment-level-even{
-    background: #F6F6F3;
-}
-.comment-content p{
-    line-height: 1.5;
-    padding: 10px;
 }

@@ -45,12 +45,12 @@
                                     <p class="text-center"><small><em><?php $this->options->description() ?></em></small></p>
                                 </a>
                                 <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="<?php $this->options->siteUrl(); ?>" class="main-page">文章列表</a></li>
+                                    <li><a href="<?php $this->options->siteUrl(); ?>" id="mian-page-url" class="main-page text-center">文章列表</a></li>
                                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                                     <?php while($pages->next()): ?>
                                         <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
                                             <li>
-                                                <a class="page-url" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                                                <a class="page-url text-center" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
@@ -60,7 +60,20 @@
                         <div class="col-sm-8 col-md-8">
                             <div id="toc-bar">
                                 <div id="show-in-post">
-                                    <div id="toc"></div>
+                                    <div class="panel-group" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="collapse-list-toc-heading">
+                                                <h3 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="true" aria-controls="collapse-list-toc">
+                                                        文章目录
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-toc-page" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapse-list-toc-heading">
+                                                <div id="toc"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php $this->need('showinpost.php'); ?>
                                 </div>
                                 <div id="show-not-in-post">

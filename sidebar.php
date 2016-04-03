@@ -18,13 +18,28 @@
     <?php endif; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
         <section class="widget">
-            <h3 class="widget-title"><?php _e('最近回复'); ?></h3>
-            <ul class="widget-list">
-                <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
-                <?php while($comments->next()): ?>
-                    <li><a class="post-url" href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?></li>
-                <?php endwhile; ?>
-            </ul>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapse-list-recent-comments-heading">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="true" aria-controls="collapse-list-recent-comments">
+                            <?php _e('最近回复'); ?>
+                        </a>
+                    </h3>
+                </div>
+                <div id="collapse-list-recent-comments" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-recent-comments-heading" aria-expanded="false" style="height:0px;">
+                    <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+                    <ul class="list-group">
+                        <?php while($comments->next()): ?>
+                            <li class="list-group-item">
+                                <a class="post-url" href="<?php $comments->permalink(); ?>">
+                                    <?php $comments->author(false); ?> (<small><em><?php $comments->title(); ?></em></small>)
+                                </a>
+                                : <?php $comments->excerpt(35, '...'); ?>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                </div>
+            </div>
         </section>
     <?php endif; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)): ?>
@@ -43,18 +58,28 @@
     <?php endif; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowOther', $this->options->sidebarBlock)): ?>
         <section class="widget">
-            <h3 class="widget-title"><?php _e('其它'); ?></h3>
-            <ul class="widget-list">
-                <?php if($this->user->hasLogin()): ?>
-                    <li class="last"><a href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?> (<?php $this->user->screenName(); ?>)</a></li>
-                    <li><a href="<?php $this->options->logoutUrl(); ?>"><?php _e('退出'); ?></a></li>
-                <?php else: ?>
-                    <li class="last"><a href="<?php $this->options->adminUrl('login.php'); ?>"><?php _e('登录'); ?></a></li>
-                <?php endif; ?>
-                <li><a href="<?php $this->options->feedUrl(); ?>"><?php _e('文章 RSS'); ?></a></li>
-                <li><a href="<?php $this->options->commentsFeedUrl(); ?>"><?php _e('评论 RSS'); ?></a></li>
-                <li><a href="http://www.typecho.org">Typecho</a></li>
-            </ul>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapse-list-others-heading">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-others" aria-expanded="false" aria-controls="collapse-list-others">
+                            <?php _e('其它'); ?>
+                        </a>
+                    </h3>
+                </div>
+                <div id="collapse-list-others" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-others-heading">
+                    <ul class="list-group">
+                        <?php if($this->user->hasLogin()): ?>
+                            <li class="list-group-item"><a href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?> (<?php $this->user->screenName(); ?>)</a></li>
+                            <li class="list-group-item"><a href="<?php $this->options->logoutUrl(); ?>"><?php _e('退出'); ?></a></li>
+                        <?php else: ?>
+                            <li class="list-group-item"><a href="<?php $this->options->adminUrl('login.php'); ?>"><?php _e('登录'); ?></a></li>
+                        <?php endif; ?>
+                        <li class="list-group-item"><a href="<?php $this->options->feedUrl(); ?>"><?php _e('文章 RSS'); ?></a></li>
+                        <li class="list-group-item"><a href="<?php $this->options->commentsFeedUrl(); ?>"><?php _e('评论 RSS'); ?></a></li>
+                        <li class="list-group-item"><a href="http://www.typecho.org">Typecho</a></li>
+                    </ul>
+                </div>
+            </div>
         </section>
     <?php endif; ?>
 </div><!-- end #sidebar -->

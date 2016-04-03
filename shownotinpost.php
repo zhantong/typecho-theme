@@ -16,19 +16,44 @@
 <?php endif; ?>
 <?php if (!empty($this->options->secondbarPage) && in_array('ShowRecentComments', $this->options->secondbarPage)): ?>
     <section class="widget">
-        <h3 class="widget-title"><?php _e('最近回复'); ?></h3>
-        <ul class="widget-list">
-            <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
-            <?php while($comments->next()): ?>
-                <li><a class="post-url" href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?></li>
-            <?php endwhile; ?>
-        </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapse-list-recent-comments-heading">
+                <h3 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="true" aria-controls="collapse-list-recent-comments">
+                        <?php _e('最近回复'); ?>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapse-list-recent-comments" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-recent-comments-heading" aria-expanded="false" style="height:0px;">
+                <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+                <ul class="list-group">
+                    <?php while($comments->next()): ?>
+                        <li class="list-group-item"><a class="post-url" href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?></li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+        </div>
     </section>
 <?php endif; ?>
 <?php if (!empty($this->options->secondbarPage) && in_array('ShowCategory', $this->options->secondbarPage)): ?>
-    <section class="widget category">
-        <h3 class="widget-title"><?php _e('分类'); ?></h3>
-        <?php $this->widget('Widget_Metas_Category_List')->listCategories('wrapClass=widget-list'); ?>
+    <section class="widget">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapse-list-category-heading">
+                <h3 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-category" aria-expanded="false" aria-controls="collapse-list-category">
+                        <?php _e('分类'); ?>
+                    </a>
+                </h3>
+            </div>
+            <div id="collapse-list-category" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-category-heading" aria-expanded="false" style="height:0px;">
+                <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
+                <ul class="list-group">
+                    <?php while($category->next()): ?>
+                        <li class="list-group-item"><a class="post-url" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a><span class="badge"><?php $category->count(); ?></span></li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+        </div>
     </section>
 <?php endif; ?>
 <?php if (!empty($this->options->secondbarPage) && in_array('ShowArchive', $this->options->secondbarPage)): ?>
