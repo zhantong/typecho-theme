@@ -3,7 +3,6 @@
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
     <?php if($this->getCurrentPage()==1): ?>
         <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
-        <?php $this->need('crumbpatch.php'); ?>
     <?php endif ?>
     <div class="articles">
         <?php while($this->next()): ?>

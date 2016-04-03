@@ -21,7 +21,6 @@
     ?>
 <?php else:  ?>
     <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
-    <?php $this->need('crumbpatch.php'); ?>
 <?php endif ?>
 <article>
     <ul class="listing">

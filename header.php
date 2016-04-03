@@ -54,6 +54,20 @@
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
+                                    <li>
+                                    </li>
+                                </div>
+                                <div class="dropdown text-center">
+                                    <a class="glyphicon glyphicon-search" role="button" id="dropdown-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="padding:0;border:0;">
+                                        <div class="input-group" id="search">
+                                            <input type="text" class="form-control" placeholder="输入关键字搜索">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default">搜索</button>
+                                            </span>
+                                        </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -85,17 +99,4 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 ol-lg-6" id="m-nav">
                     <div id="content">
-                        <div class="row">
-                            <div id="crumbs-patch" class="col-sm-8 col-md-8">
-                                <?php $this->need('crumbpatch.php'); ?>
-                            </div>
-                            <div class="col-sm-4 col-md-4">
-                                <div class="input-group" id="search">
-                                    <input type="text" class="form-control" placeholder="输入关键字搜索">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default">搜索</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
                         <div id="main">

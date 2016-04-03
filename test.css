@@ -1,4 +1,4 @@
-.dropdown-menu{
+#sidebar.dropdown-menu{
     min-width: 0;
     box-shadow: none;
     border: none;
@@ -22,7 +22,7 @@
 #content{
 }
 @media (min-width: 767px) {
-    .dropdown-menu{
+    #sidebar.dropdown-menu{
         display: block;
         width: 100%;
     }
@@ -57,7 +57,7 @@
 
 
 #toc {
-    padding:10px; 
+    padding:10px;
 }
 
 #toc ul {

@@ -13,7 +13,6 @@ function load_more_list(){
             $('#main').append($(msg).filter('.articles').html());
             if($(msg).filter('#content-title').length){
                 //console.log($(msg).filter('#content-title').text());
-                $('#crumbs-patch').html($(msg).filter('.crumbs-patch').html());
                 document.title = $(msg).filter('#content-title').text();
                 window.history.pushState({"pageTitle":document.title},"", $('#logo').attr('href'));
             }
@@ -40,7 +39,7 @@ $(document).ready(function() {
         load_page($(this).attr('href'),'post');
         return false;
     });
-    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a,#crumbs-patch a:not(.main-page)',function(){
+    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a',function(){
         load_page($(this).attr('href'),'tag');
         return false;
     });
@@ -103,7 +102,6 @@ function load_page(the_url,type){
 }
 function process_content(msg,type){
     //console.log(msg);
-    $('#crumbs-patch').html($(msg).filter('.crumbs-patch').html());
     if(type=='post'){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();

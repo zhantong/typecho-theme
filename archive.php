@@ -25,7 +25,6 @@
         'tag' => _t('标签 %s 下的文章'),
         'author' => _t('%s 发布的文章'),
     ), '', ' - '); ?><?php $this->options->title(); ?></a>
-    <?php $this->need('crumbpatch.php'); ?>
 <?php endif ?>
 
 <?php if ($this->have()): ?>
