@@ -80,14 +80,14 @@
                     <div class="form-group has-feedback">
                         <label for="author" class=" col-sm-2 control-label"><?php _e('称呼'); ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="author" id="author" class="form-control" value="<?php $this->remember('author'); ?>" />
+                            <input type="text" name="author" id="author" class="form-control" required value="<?php $this->remember('author'); ?>" />
                             <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
                         </div>
                     </div>
                     <div class="form-group has-feedback">
                         <label for="mail" class="col-sm-2 control-label"><?php _e('Email'); ?></label>
                         <div class="col-sm-10">
-                            <input type="email" name="mail" id="mail" class="form-control" value="<?php $this->remember('mail'); ?>" placeholder="填写Email以便有新的回复时能够及时通知您，您的Email不会被公开"/>
+                            <input type="email" name="mail" id="mail" <?php if ($this->options->commentsRequireMail): ?>required <?php endif; ?>class="form-control" value="<?php $this->remember('mail'); ?>" placeholder="填写Email以便有新的回复时能够及时通知您，您的Email不会被公开"/>
                             <?php if ($this->options->commentsRequireMail): ?>
                                 <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
                             <?php endif; ?>
@@ -96,7 +96,7 @@
                     <div class="form-group has-feedback">
                         <label for="url" class="col-sm-2 control-label"><?php _e('网站'); ?></label>
                         <div class="col-sm-10">
-                            <input type="url" name="url" id="url" class="form-control" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>" />
+                            <input type="url" name="url" id="url" class="form-control" <?php if ($this->options->commentsRequireURL): ?>required <?php endif; ?>placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>" />
                             <?php if ($this->options->commentsRequireURL): ?>
                                 <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
                             <?php endif; ?>
@@ -106,10 +106,11 @@
                 <div class="form-group has-feedback">
                     <label for="textarea" class="required col-sm-2 control-label"><?php _e('内容'); ?></label>
                     <div class="col-sm-10">
-                        <textarea rows="8" name="text" id="textarea" class="form-control"><?php $this->remember('text'); ?></textarea>
+                        <textarea rows="8" name="text" id="textarea" class="form-control" required><?php $this->remember('text'); ?></textarea>
                         <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
                     </div>
                 </div>
+                <input name="parent" value="" style="display:none;"/>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default"><?php _e('提交评论'); ?></button>

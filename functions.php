@@ -64,6 +64,7 @@ function PageToLinks($page)
                 <h3 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-page" aria-expanded="true" aria-controls="collapse-list-page">
                         {$title}
+                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
                     </a>
                 </h3>
             </div>

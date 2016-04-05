@@ -14,7 +14,9 @@
 
 #content{
 }
-
+#navi .dropdown .btn-block{
+    padding: 10px 0 0 0;
+}
 @media (min-width: 767px) {
     #sidebar.dropdown-menu{
         display: block;
@@ -44,21 +46,30 @@
     #test-parent{
         z-index: 99;
     }
+    #navi .dropdown{
+        height: inherit;
+        display: flex;
+        align-items: center;
+    }
+    #navi .dropdown a.dropdown-toggle{
+        text-align: left;
+    }
 }
 
-#m-nav{
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
+.need-margin-top{
+    margin-top: 20px;
 }
-
-#m-nav article{
-    border-bottom: 4px solid #EEE;
+.collapse-toggle-icon{
+    color:#ccc !important;
 }
 #sidebar a{
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
+article.post-brif ul.post-meta{
+    margin-bottom: 0;
+}
 
 .toc-item{
     border-bottom: 1px solid #CCC;

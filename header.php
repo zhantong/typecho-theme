@@ -39,17 +39,16 @@
                     <div class="row" id="test">
                         <div id="navi" class="col-sm-12 col-md-4">
                             <div class="dropdown">
-                                <div id="site-intro-mobile">
-                                    <a class="btn btn-lg dropdown-toggle glyphicon glyphicon-home" id="dropdownMenu1" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
-                                        <?php $this->options->title() ?>
+                                    <a class="btn btn-lg dropdown-toggle visible-xs" id="logo" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
                                     </a>
-                                    <span><small><em><?php $this->options->description() ?></em></small></span>
-                                </div>
-                                <div id="site-intro">
-                                    <a id="logo" class="main-page" href="<?php $this->options->siteUrl(); ?>"><p class="text-center"><strong class="lead"><?php $this->options->title() ?></strong></p></a>
-                                    <p class="text-center"><small><em><?php $this->options->description() ?></em></small></p>
-                                </div>
-                                <div id="sidebar" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <a class="btn btn-lg btn-block hidden-xs" href="<?php $this->options->siteUrl(); ?>">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
+                                    </a>
+                                    <p class="text-center hidden-xs"><small><em><?php $this->options->description() ?></em></small></p>
+                                <ul id="sidebar" class="dropdown-menu" aria-labelledby="logo">
                                     <li><a href="<?php $this->options->siteUrl(); ?>" id="mian-page-url" class="main-page text-center">文章列表</a></li>
                                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                                     <?php while($pages->next()): ?>
@@ -70,10 +69,10 @@
                                             </div>
                                         </ul>
                                     </li>
-                                </div>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-md-8 hidden-xs hidden-sm">
+                        <div class="col-md-8 hidden-xs hidden-sm need-margin-top">
                             <div id="toc-bar">
                                 <div id="show-in-post">
                                     <div class="panel-group" role="tablist">
@@ -82,6 +81,7 @@
                                                 <h3 class="panel-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="true" aria-controls="collapse-list-toc">
                                                         文章目录
+                                                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
                                                     </a>
                                                 </h3>
                                             </div>
@@ -99,6 +99,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6" id="m-nav">
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 need-margin-top" id="m-nav">
                     <div id="content">
                         <div id="main">

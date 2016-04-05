@@ -1,5 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<div class="col-lg-2 visible-lg-block" id="secondary">
+<div class="col-lg-2 visible-lg-block need-margin-top" id="secondary">
     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
     <?php while($pages->next()): ?>
         <?php if (!empty($this->options->sidebarBlock) && in_array($pages->slug, $this->options->sidebarBlock)): ?>
@@ -23,6 +23,7 @@
                     <h3 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="true" aria-controls="collapse-list-recent-comments">
                             <?php _e('最近回复'); ?>
+                            <span class="collapse-toggle-icon small glyphicon glyphicon-resize-full"></span>
                         </a>
                     </h3>
                 </div>

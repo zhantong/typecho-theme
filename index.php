@@ -7,16 +7,22 @@
     <div class="articles">
         <?php while($this->next()): ?>
             <article class="post-brif">
-                <h4 class="post-title"><u><a class="post-url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></u></h4>
-                <div class="post-excerpt hidden-xs">
-                    <p><small><?php $this->excerpt(); ?></small></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="post-url" href="<?php $this->permalink() ?>"><h4><?php $this->title() ?></h4></a>
+                    </div>
+                    <div class="panel-body">
+                        <?php $this->excerpt(200); ?>
+                    </div>
+                    <div class="panel-footer">
+                        <ul class="post-meta list-inline small">
+                            <li><span class="glyphicon glyphicon-calendar" title="发表时间"></span><?php $this->date('Y-m-d'); ?></li>
+                            <li><span class="glyphicon glyphicon-fire" title="阅读量"></span> <span class="badge"><?php $this->viewsNum(); ?></span></li>
+                            <li><span class="glyphicon glyphicon-bookmark" title="分类"><?php $this->category(', '); ?></span></li>
+                            <li><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment" title="评论"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="post-meta list-inline clearfix hidden-xs">
-                    <li><span class="glyphicon glyphicon-calendar" title="发表时间"></span><?php $this->date('Y-m-d'); ?></li>
-                    <li><span class="glyphicon glyphicon-fire" title="阅读量"></span> <span class="badge"><?php $this->viewsNum(); ?></span></li>
-                    <li><span class="glyphicon glyphicon-bookmark" title="分类"><?php $this->category(', '); ?></span></li>
-                    <li><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment" title="评论"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
-                </ul>
             </article>
         <?php endwhile; ?>
     </div>

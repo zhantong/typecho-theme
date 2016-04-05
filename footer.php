@@ -9,5 +9,6 @@
     </div>
     <?php $this->need('sidebar.php'); ?>
 </div>
+<?php $this->footer(); ?>
     </body>
 </html>

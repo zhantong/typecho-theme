@@ -29,8 +29,8 @@
         <?php while($posts->next()): ?>
             <li class="list-group-item">
                 <small><em><?php $posts->date('Y-m-d'); ?></em></small>
-                <span class="badge"><?php $posts->viewsNum(); ?></span>
                 <a class="post-url" href="<?php $posts->permalink() ?>"><?php $posts->title() ?></a>
+                <span class="badge" title="阅读量"><?php $posts->viewsNum(); ?></span>
             </li>
         <?php endwhile; ?>
     </ul>

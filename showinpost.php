@@ -6,6 +6,7 @@
                 <h3 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-related-posts" aria-expanded="true" aria-controls="collapse-list-related-posts">
                         <?php _e('相关文章'); ?>
+                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
                     </a>
                 </h3>
             </div>
@@ -28,6 +29,7 @@
                 <h3 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-prev-next-posts" aria-expanded="true" aria-controls="collapse-list-prev-next-posts">
                         <?php _e('上一篇/下一篇'); ?>
+                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
                     </a>
                 </h3>
             </div>

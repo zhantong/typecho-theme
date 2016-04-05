@@ -27,7 +27,6 @@
     <div class="post-content">
         <?php $this->content(); ?>
     </div>
-    <?php $this->footer(); ?>
 </article>
 <?php $this->need('comments.php'); ?>
 <?php if($is_ajax):  ?>

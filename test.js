@@ -75,6 +75,12 @@ $(document).ready(function() {
         the_url=$('#logo').attr('href') + "search/" + keywords+"/";
         load_page(the_url,'tag');
     });
+    $(document).on('hidden.bs.collapse','.collapse',function(){
+        $(this).siblings('.panel-heading').find(".collapse-toggle-icon").removeClass('glyphicon-resize-small').addClass('glyphicon-resize-full');
+    });
+    $(document).on('shown.bs.collapse','.collapse',function(){
+        $(this).siblings('.panel-heading').find(".collapse-toggle-icon").removeClass('glyphicon-resize-full').addClass('glyphicon-resize-small');
+    });
 });
 function clean_up(){
     if($('#load-more').length){
