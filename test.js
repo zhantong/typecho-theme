@@ -131,6 +131,7 @@ function process_content(msg,type){
         $('#show-not-in-post').show();
         $('#main').html($(msg).filter('article'));
     }
+    $(window).scrollTop(0);
 }
 window.onpopstate = function(event){
     if(event.state){
