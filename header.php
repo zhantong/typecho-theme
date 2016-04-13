@@ -14,7 +14,16 @@
             ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
         <!-- 使用url函数转换相关路径 -->
-        <link rel="stylesheet" href="<?php $this->options->themeUrl('res/bootstrap/css/bootstrap.min.css'); ?>">
+        <link rel="stylesheet" href="
+            <?php
+                if($this->options->bootstrapCssUrl){
+                    $this->options->bootstrapCssUrl();
+                }
+                else{
+                    $this->options->themeUrl('res/bootstrap/css/bootstrap.min.css');
+                }
+            ?>
+        ">
         <link rel="stylesheet" href="<?php $this->options->themeUrl('res/css/alone.css'); ?>">
 
 

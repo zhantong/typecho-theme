@@ -25,7 +25,16 @@
         }
     ?>
 "></script>
-<script src="<?php $this->options->themeUrl('res/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script src="
+    <?php
+        if($this->options->bootstrapJsUrl){
+            $this->options->bootstrapJsUrl();
+        }
+        else{
+            $this->options->themeUrl('res/bootstrap/js/bootstrap.min.js');
+        }
+    ?>
+"></script>
 <script src="<?php $this->options->themeUrl('res/js/toc.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('res/js/alone.js'); ?>"></script>
 <?php $this->footer(); ?>
