@@ -1,3 +1,13 @@
+<?php
+/**
+ * typecho主题 by Penguin
+ *
+ * @package Typecho Theme Penguin
+ * @author zhantong
+ * @version 1.0.0
+ * @link https://github.com/zhantong/typecho-theme
+ */
+ ?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php include('common.php'); ?>
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>

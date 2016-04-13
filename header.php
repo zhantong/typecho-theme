@@ -15,11 +15,8 @@
 
         <!-- 使用url函数转换相关路径 -->
         <link rel="stylesheet" href="<?php $this->options->themeUrl('res/bootstrap/css/bootstrap.min.css'); ?>">
-        <link rel="stylesheet" href="<?php $this->options->themeUrl('res/css/test.css'); ?>">
-        <script src="<?php $this->options->themeUrl('res/jquery/jquery-2.2.2.js'); ?>"></script>
-        <script src="<?php $this->options->themeUrl('res/bootstrap/js/bootstrap.min.js'); ?>"></script>
-        <script src="<?php $this->options->themeUrl('res/js/toc.js'); ?>"></script>
-        <script src="<?php $this->options->themeUrl('res/js/test.js'); ?>"></script>
+        <link rel="stylesheet" href="<?php $this->options->themeUrl('res/css/alone.css'); ?>">
+
 
         <!--[if lt IE 9]>
         <script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>

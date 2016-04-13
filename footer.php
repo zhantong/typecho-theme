@@ -14,6 +14,11 @@
     </div>
     <?php $this->need('sidebar.php'); ?>
 </div>
+</div>
+<script src="<?php $this->options->themeUrl('res/jquery/jquery-2.2.2.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('res/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('res/js/toc.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('res/js/alone.js'); ?>"></script>
 <?php $this->footer(); ?>
     </body>
 </html>

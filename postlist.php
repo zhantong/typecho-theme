@@ -25,7 +25,7 @@
 <?php $this->widget('Widget_Archive@index', 'pageSize=10000&type=index')->to($posts); ?>
 <article>
     <h1 class="archive-title"><?php $this->archiveTitle('','',''); ?></h1>
-    <ul class="listing">
+    <ul class="listing" style="padding-left:0;">
         <?php while($posts->next()): ?>
             <li class="list-group-item">
                 <small><em><?php $posts->date('Y-m-d'); ?></em></small>

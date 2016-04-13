@@ -132,6 +132,7 @@ function process_content(msg,type){
         $('#main').html($(msg).filter('article'));
     }
     $(window).scrollTop(0);
+    $('#m-nav').hide().fadeIn();
 }
 window.onpopstate = function(event){
     if(event.state){
