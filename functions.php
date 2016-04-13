@@ -49,6 +49,9 @@ function themeConfig($form)
     $secondbarPost=new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPost', $secondbarList,
     array('ShowRelatedPosts', 'ShowPrevNextPosts'), _t('第二栏显示（文章页面）'));
     $form->addInput($secondbarPost->multiMode());
+
+    $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
+    $form->addInput($icpNum);
 }
 
 function PageToLinks($page)
