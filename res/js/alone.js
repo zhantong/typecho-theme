@@ -2,7 +2,7 @@ var current_page = 0;
 function load_more_list(){
     //alert($("#load_more_button").offset().top+$("#load_more_button").height()+" "+$(window).height());
     if(current_page===0){
-        $('<button id="load-more" class="btn btn-primary btn-block">加载更多</button>').insertAfter('#main');
+        $('<button id="load-more" class="btn btn-primary btn-block">加载更多</button>').insertAfter('#content');
     }
     current_page ++;
     $.ajax({
@@ -10,7 +10,7 @@ function load_more_list(){
         url:$('#logo').attr('href') + "page/" + current_page+"/",
         data:{'load_type':'ajax'},
         success:function(msg){
-            $('#main').append($(msg).filter('.articles').html());
+            $('#content').append($(msg).filter('.articles').html());
             if($(msg).filter('#content-title').length){
                 //console.log($(msg).filter('#content-title').text());
                 document.title = $(msg).filter('#content-title').text();
@@ -23,7 +23,7 @@ function load_more_list(){
 function process_post_list(){
     current_page = 0;
     $('#load-more').remove();
-    $('#main').empty();
+    $('#content').empty();
     $('#show-in-post').hide();
     $('#show-not-in-post').show();
     load_more_list();
@@ -39,11 +39,11 @@ $(document).ready(function() {
         load_page($(this).attr('href'),'post');
         return false;
     });
-    $(document).on('click','#toc-bar .category a,#main .category a,#main .tag a',function(){
+    $(document).on('click','#relatedbar .category a,#content .category a,#content .tag a',function(){
         load_page($(this).attr('href'),'tag');
         return false;
     });
-    $('#sidebar .page-url').click(function(){
+    $('#navbar-content .page-url').click(function(){
         //console.log($(this).attr('href'));
         load_page($(this).attr('href'),'page');
         return false;
@@ -56,13 +56,13 @@ $(document).ready(function() {
         $(this).attr('disabled','disabled').html('加载中...');
         load_more_list();
     });
-    if(!$.trim($('#main').html())){
-        $('#mian-page-url').click();
+    if(!$.trim($('#content').html())){
+        $('#main-page-url').click();
     }
     $('#toc').toc({
-        'container':'#main .post-content'
+        'container':'#content .post-content'
     });
-    if($('#main .post-title').length){
+    if($('#content .post-title').length){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
     }
@@ -111,34 +111,34 @@ function process_content(msg,type){
     if(type=='post'){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
-        $('#main').html($(msg).filter('article'));
-        $(msg).filter('#comments').insertAfter('#main article');
+        $('#content').html($(msg).filter('article'));
+        $(msg).filter('#comments').insertAfter('#content article');
         $('#related-posts').remove();
         $('#show-in-post').append($(msg).filter('#related-posts'));
         $('#prev-next-posts').remove();
         $('#show-in-post').append($(msg).filter('#prev-next-posts'));
         $('#toc').toc({
-            'container':'#main .post-content'
+            'container':'#content .post-content'
         });
     }
     else if(type=='page'){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
-        $('#main').html($(msg).filter('article'));
+        $('#content').html($(msg).filter('article'));
     }
     else if(type=='tag'){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
-        $('#main').html($(msg).filter('article'));
+        $('#content').html($(msg).filter('article'));
     }
     $(window).scrollTop(0);
-    $('#m-nav').hide().fadeIn();
+    $('#middle').hide().fadeIn();
 }
 window.onpopstate = function(event){
     if(event.state){
         if('html' in event.state){
-            $('#main').html(event.state.html);
-            if($('#main .post-title').length){
+            $('#content').html(event.state.html);
+            if($('#content .post-title').length){
                 $('#show-in-post').show();
                 $('#show-not-in-post').hide();
             }
@@ -149,7 +149,7 @@ window.onpopstate = function(event){
             document.title = event.state.pageTitle;
         }
         else{
-            $('#mian-page-url').click();
+            $('#main-page-url').click();
         }
     }
 };

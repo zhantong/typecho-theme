@@ -1,31 +1,26 @@
-#test{
+#left-sidebar{
     position: fixed;
     width:inherit;
     height: 100%;
 }
 
-#navi{
+#navbar{
     padding: 0;
     height: 100%;
     background-color: #C0C0C0;
 }
-#toc-bar{
-}
-
-#content{
-}
-#navi .dropdown .btn-block{
+#navbar .dropdown .btn-block{
     padding: 10px 0 0 0;
 }
 @media (min-width: 767px) {
-    #sidebar.dropdown-menu{
+    #navbar-content.dropdown-menu{
         display: block;
         width: 100%;
     }
     #site-intro-mobile{
         display: none;
     }
-    #sidebar.dropdown-menu{
+    #navbar-content.dropdown-menu{
         min-width: 0;
         box-shadow: none;
         border: none;
@@ -37,21 +32,21 @@
     #site-intro{
         display: none;
     }
-    #test{
+    #left-sidebar{
         height: 46px;
     }
-    #m-nav{
+    #middle{
         margin-top: 46px;
     }
-    #test-parent{
+    #static-sidebar{
         z-index: 99;
     }
-    #navi .dropdown{
+    #navbar .dropdown{
         height: inherit;
         display: flex;
         align-items: center;
     }
-    #navi .dropdown a.dropdown-toggle{
+    #navbar .dropdown a.dropdown-toggle{
         text-align: left;
     }
 }
@@ -62,7 +57,7 @@
 .collapse-toggle-icon{
     color:#ccc !important;
 }
-#sidebar a{
+#navbar-content a{
     padding-top: 15px;
     padding-bottom: 15px;
 }

@@ -1,6 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <!DOCTYPE HTML>
-<html class="no-js">
+<html>
     <head>
         <meta charset="<?php $this->options->charset(); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,9 +44,9 @@
     <![endif]-->
         <div id="body">
             <div class="row-fluid">
-                <div id="test-parent" class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
-                    <div class="row" id="test">
-                        <div id="navi" class="col-sm-12 col-md-4">
+                <div id="static-sidebar" class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+                    <div class="row" id="left-sidebar">
+                        <div id="navbar" class="col-sm-12 col-md-4">
                             <div class="dropdown">
                                     <a class="btn btn-lg dropdown-toggle visible-xs" id="logo" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
                                         <span class="glyphicon glyphicon-home"></span>
@@ -57,8 +57,8 @@
                                         <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
                                     </a>
                                     <p class="text-center hidden-xs"><small><em><?php $this->options->description() ?></em></small></p>
-                                <ul id="sidebar" class="dropdown-menu" aria-labelledby="logo">
-                                    <li><a href="<?php $this->options->siteUrl(); ?>" id="mian-page-url" class="main-page text-center">文章列表</a></li>
+                                <ul id="navbar-content" class="dropdown-menu" aria-labelledby="logo">
+                                    <li><a href="<?php $this->options->siteUrl(); ?>" id="main-page-url" class="main-page text-center">文章列表</a></li>
                                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                                     <?php while($pages->next()): ?>
                                         <?php if (!empty($this->options->showPages) && in_array($pages->slug, $this->options->showPages)): ?>
@@ -82,14 +82,14 @@
                             </div>
                         </div>
                         <div class="col-md-8 hidden-xs hidden-sm need-margin-top">
-                            <div id="toc-bar">
+                            <div id="relatedbar">
                                 <div id="show-in-post">
                                     <div class="panel-group" role="tablist">
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="collapse-list-toc-heading">
                                                 <h3 class="panel-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="true" aria-controls="collapse-list-toc">
-                                                        文章目录
+                                                        目录
                                                         <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
                                                     </a>
                                                 </h3>
@@ -108,6 +108,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 need-margin-top" id="m-nav">
-                    <div id="content">
-                        <div id="main">
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 need-margin-top" id="middle">
+                    <div>
+                        <div id="content">
