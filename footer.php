@@ -21,7 +21,7 @@
             $this->options->jQueryUrl();
         }
         else{
-            $this->options->themeUrl('res/jquery/jquery-2.2.2.js');
+            $this->options->themeUrl('res/jquery/jquery-2.2.3.min.js');
         }
     ?>
 "></script>
