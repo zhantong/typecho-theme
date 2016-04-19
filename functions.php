@@ -53,6 +53,9 @@ function themeConfig($form)
     $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
     $form->addInput($icpNum);
 
+    $siteStat = new Typecho_Widget_Helper_Form_Element_Textarea('siteStat', NULL, NULL, _t('统计代码'), _t('在这里填入网站统计代码'));
+    $form->addInput($siteStat);
+
     $bootstrapJsUrl = new Typecho_Widget_Helper_Form_Element_Text('bootstrapJsUrl', NULL, NULL, _t('bootstrap.min.js CDN URL'), _t('bootstrap.min.js CDN地址，为空则使用自带的bootstrap.min.js'));
     $form->addInput($bootstrapJsUrl);
     $bootstrapCssUrl = new Typecho_Widget_Helper_Form_Element_Text('bootstrapCssUrl', NULL, NULL, _t('bootstrap.min.css CDN URL'), _t('bootstrap.min.css CDN地址，为空则使用自带的bootstrap.min.css'));

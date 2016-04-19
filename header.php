@@ -34,6 +34,9 @@
 
         <!-- 通过自有函数输出HTML头部信息 -->
         <?php $this->header(); ?>
+        <?php if ($this->options->siteStat): ?>
+            <?php $this->options->siteStat(); ?>
+        <?php endif; ?>
     </head>
     <body>
     <!--[if lt IE 8]>
