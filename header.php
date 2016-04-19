@@ -67,7 +67,7 @@
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
-                                    <li class="dropdown-submenu text-center">
+                                    <li class="dropdown-search text-center">
                                         <a class="glyphicon glyphicon-search" href="#"></a>
                                         <ul class="dropdown-menu" style="padding:0;border:0;">
                                             <div class="input-group" id="search">
