@@ -28,7 +28,7 @@
                         <ul class="post-meta list-inline small">
                             <li><span class="glyphicon glyphicon-calendar" title="发表时间"></span><?php $this->date('Y-m-d'); ?></li>
                             <li><span class="glyphicon glyphicon-fire" title="阅读量"></span> <span class="badge"><?php $this->viewsNum(); ?></span></li>
-                            <li><span class="glyphicon glyphicon-bookmark" title="分类"><?php $this->category(', '); ?></span></li>
+                            <li><span class="glyphicon glyphicon-bookmark" title="分类"></span><?php $this->category(', '); ?></li>
                             <li><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment" title="评论"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
                         </ul>
                     </div>

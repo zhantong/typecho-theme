@@ -106,6 +106,7 @@ article.post-brif ul.post-meta{
 }
 /* table of content end */
 
+/* comment start */
 .comment-list li{
     border: 1px solid #EEE;
     padding: 14px;
@@ -126,10 +127,9 @@ ol.comment-list{
     line-height: 1.5;
     padding: 10px;
 }
+/* comment end */
 
-
-
-
+/* search start */
 .dropdown-search {
     position: relative;
 }
@@ -165,6 +165,7 @@ ol.comment-list{
 .dropdown-search:hover>a:after {
     border-left-color: #fff;
 }
+/* search end */
 
 /* markdown start */
 .post {
@@ -172,7 +173,7 @@ ol.comment-list{
   -webkit-text-size-adjust: 100%;
   color: #333;
   overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial,"Microsoft YaHei", "微软雅黑",STXihei, "华文细黑";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
