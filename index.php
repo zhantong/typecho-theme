@@ -9,7 +9,6 @@
  */
  ?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php include('common.php'); ?>
 <?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
     <?php if($this->getCurrentPage()==1): ?>
         <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
@@ -39,7 +38,5 @@
     <?php return; //完成ajax方式返回，退出此页面?>
 <?php endif ?>
 <?php $this->need('header.php'); ?>
-<?php
-    echo $main_tail;
-?>
+</div>
 <?php $this->need('footer.php'); ?>

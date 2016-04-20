@@ -1,5 +1,4 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php include('common.php'); ?>
 <?php
     if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'){
         $is_ajax=true;
@@ -32,8 +31,6 @@
 <?php if($is_ajax):  ?>
     <?php $this->need('showinpost.php'); ?>
 <?php else: ?>
-    <?php
-        echo $main_tail;
-        $this->need('footer.php');
-    ?>
+    </div>
+    <?php $this->need('footer.php'); ?>
 <?php endif ?>
