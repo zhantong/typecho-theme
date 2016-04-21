@@ -90,7 +90,7 @@
                                     </li>
                                     <?php if ($this->options->githubUrl): ?>
                                         <li>
-                                            <a href="<?php $this->options->githubUrl(); ?>" class="text-center"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+                                            <a href="<?php $this->options->githubUrl(); ?>" class="text-center"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
                                     <?php endif; ?>
                                 </ul>
                             </div>
