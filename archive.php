@@ -36,15 +36,24 @@
             'tag' => _t('标签 %s 下的文章'),
             'author' => _t('%s 发布的文章'),
         ), '', ''); ?></h1>
-        <ul class="listing">
+        <table class="table table-striped table-hover table-condensed">
+            <thead>
+                <tr class="small">
+                    <th>发表时间<i class="fa fa-sort fa-fw" aria-hidden="true"></i></th>
+                    <th>标题</th>
+                    <th>评论<i class="fa fa-sort fa-fw" aria-hidden="true"></i></th>
+                    <th>阅读<i class="fa fa-sort fa-fw" aria-hidden="true"></i></th>
+                </tr>
+            </thead>
             <?php while($posts->next()): ?>
-                <li class="list-group-item">
-                    <small><em><?php $posts->date('Y-m-d'); ?></em></small>
-                    <span class="badge"><?php $posts->viewsNum(); ?></span>
-                    <a class="post-url" href="<?php $posts->permalink() ?>"><?php $posts->title() ?></a>
-                </li>
+                <tr>
+                    <td><span class="small" title="发表时间"><?php $posts->date('Y/m/d'); ?><span></td>
+                    <td><a class="post-url" href="<?php $posts->permalink() ?>" title="<?php $posts->title() ?>"><?php $posts->title() ?></a></td>
+                    <td><span class="badge" title="评论量"><?php $posts->commentsNum(); ?></span></td>
+                    <td><span class="badge" title="阅读量"><?php $posts->viewsNum(); ?></span></td>
+                </tr>
             <?php endwhile; ?>
-        </ul>
+        </table>
     </article>
 <?php else: ?>
     <article class="post">

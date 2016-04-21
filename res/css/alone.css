@@ -73,6 +73,10 @@ article.post-brif ul.post-meta{
 footer{
     background-color: #EFEFEF;
 }
+table thead tr th{
+    white-space: nowrap;
+    cursor: pointer;
+}
 /* table of content start */
 #toc {
     padding:10px;
