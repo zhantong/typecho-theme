@@ -20,7 +20,17 @@
                     $this->options->bootstrapCssUrl();
                 }
                 else{
-                    $this->options->themeUrl('res/bootstrap/css/bootstrap.min.css');
+                    $this->options->themeUrl('res/bootstrap-3.3.6/css/bootstrap.min.css');
+                }
+            ?>
+        ">
+        <link rel="stylesheet" href="
+            <?php
+                if($this->options->fontawesomeUrl){
+                    $this->options->fontawesomeUrl();
+                }
+                else{
+                    $this->options->themeUrl('res/font-awesome-4.6.1/css/font-awesome.min.css');
                 }
             ?>
         ">
@@ -49,11 +59,11 @@
                         <div id="navbar" class="col-sm-12 col-md-4">
                             <div class="dropdown">
                                     <a class="btn btn-lg dropdown-toggle visible-xs" id="logo" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
-                                        <span class="glyphicon glyphicon-home"></span>
+                                        <i class="fa fa-home fa-fw" aria-hidden="true"></i>
                                         <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
                                     </a>
                                     <a class="btn btn-lg btn-block hidden-xs" href="<?php $this->options->siteUrl(); ?>">
-                                        <span class="glyphicon glyphicon-home"></span>
+                                        <i class="fa fa-home fa-fw" aria-hidden="true"></i>
                                         <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
                                     </a>
                                     <p class="text-center hidden-xs"><small><em><?php $this->options->description() ?></em></small></p>
@@ -68,7 +78,7 @@
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                     <li class="dropdown-search text-center">
-                                        <a class="glyphicon glyphicon-search" href="#"></a>
+                                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu" style="padding:0;border:0;">
                                             <div class="input-group" id="search">
                                                 <input type="text" class="form-control" placeholder="输入关键字搜索">
@@ -88,13 +98,13 @@
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="collapse-list-toc-heading">
                                                 <h3 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="true" aria-controls="collapse-list-toc">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="false" aria-controls="collapse-list-toc">
                                                         目录
-                                                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
+                                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                                     </a>
                                                 </h3>
                                             </div>
-                                            <div id="collapse-toc-page" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapse-list-toc-heading">
+                                            <div id="collapse-toc-page" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-toc-heading">
                                                 <div id="toc"></div>
                                             </div>
                                         </div>

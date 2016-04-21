@@ -21,9 +21,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="collapse-list-recent-comments-heading">
                     <h3 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="true" aria-controls="collapse-list-recent-comments">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="false" aria-controls="collapse-list-recent-comments">
                             <?php _e('最近回复'); ?>
-                            <span class="collapse-toggle-icon small glyphicon glyphicon-resize-full"></span>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </a>
                     </h3>
                 </div>

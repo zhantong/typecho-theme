@@ -31,7 +31,7 @@
             $this->options->bootstrapJsUrl();
         }
         else{
-            $this->options->themeUrl('res/bootstrap/js/bootstrap.min.js');
+            $this->options->themeUrl('res/bootstrap-3.3.6/js/bootstrap.min.js');
         }
     ?>
 "></script>

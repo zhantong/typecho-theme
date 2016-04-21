@@ -65,6 +65,9 @@ $(document).ready(function() {
     if($('#content .post-title').length){
         $('#show-in-post').show();
         $('#show-not-in-post').hide();
+        $('#collapse-toc-page').collapse('show');
+        $('#collapse-list-related-posts').collapse('show');
+        $('#collapse-list-prev-next-posts').collapse('show');
     }
     else{
         $('#show-in-post').hide();
@@ -76,10 +79,10 @@ $(document).ready(function() {
         load_page(the_url,'tag');
     });
     $(document).on('hidden.bs.collapse','.collapse',function(){
-        $(this).siblings('.panel-heading').find(".collapse-toggle-icon").removeClass('glyphicon-resize-small').addClass('glyphicon-resize-full');
+        $(this).siblings('.panel-heading').find("i").removeClass('fa-chevron-up').addClass('fa-chevron-down');
     });
     $(document).on('shown.bs.collapse','.collapse',function(){
-        $(this).siblings('.panel-heading').find(".collapse-toggle-icon").removeClass('glyphicon-resize-full').addClass('glyphicon-resize-small');
+        $(this).siblings('.panel-heading').find("i").removeClass('fa-chevron-down').addClass('fa-chevron-up');
     });
 });
 function clean_up(){
@@ -120,6 +123,9 @@ function process_content(msg,type){
         $('#toc').toc({
             'container':'#content .post-content'
         });
+        $('#collapse-toc-page').collapse('show');
+        $('#collapse-list-related-posts').collapse('show');
+        $('#collapse-list-prev-next-posts').collapse('show');
     }
     else if(type=='page'){
         $('#show-in-post').hide();

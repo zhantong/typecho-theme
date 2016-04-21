@@ -33,7 +33,7 @@
                 <span class="fn lead"><strong><?php $comments->author(); ?></strong></span>
             </div>
             <div class="comment-meta">
-                <small><span class="glyphicon glyphicon-calendar"><a class="text-muted" href="<?php $comments->permalink(); ?>"><?php $comments->date('Y-m-d H:i'); ?></a></span></small>
+                <small><i class="fa fa-calendar fa-fw" aria-hidden="true" title="发表时间"></i><a class="text-muted" href="<?php $comments->permalink(); ?>"><?php $comments->date('Y-m-d H:i'); ?></a></small>
             </div>
             <div class="comment-content">
                 <?php $comments->content(); ?>
@@ -81,7 +81,7 @@
                         <label for="author" class=" col-sm-2 control-label"><?php _e('称呼'); ?></label>
                         <div class="col-sm-10">
                             <input type="text" name="author" id="author" class="form-control" required value="<?php $this->remember('author'); ?>" />
-                            <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
+                            <i class="form-control-feedback fa fa-asterisk"></i>
                         </div>
                     </div>
                     <div class="form-group has-feedback">
@@ -89,7 +89,7 @@
                         <div class="col-sm-10">
                             <input type="email" name="mail" id="mail" <?php if ($this->options->commentsRequireMail): ?>required <?php endif; ?>class="form-control" value="<?php $this->remember('mail'); ?>" placeholder="填写Email以便有新的回复时能够及时通知您，您的Email不会被公开"/>
                             <?php if ($this->options->commentsRequireMail): ?>
-                                <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
+                                <i class="form-control-feedback fa fa-asterisk"></i>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="col-sm-10">
                             <input type="url" name="url" id="url" class="form-control" <?php if ($this->options->commentsRequireURL): ?>required <?php endif; ?>placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>" />
                             <?php if ($this->options->commentsRequireURL): ?>
-                                <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
+                                <i class="form-control-feedback fa fa-asterisk"></i>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     <label for="textarea" class="required col-sm-2 control-label"><?php _e('内容'); ?></label>
                     <div class="col-sm-10">
                         <textarea rows="8" name="text" id="textarea" class="form-control" required><?php $this->remember('text'); ?></textarea>
-                        <i class="form-control-feedback glyphicon glyphicon-asterisk"></i>
+                        <i class="form-control-feedback fa fa-asterisk"></i>
                     </div>
                 </div>
                 <input name="parent" value="" style="display:none;"/>

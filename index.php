@@ -25,10 +25,10 @@
                     </div>
                     <div class="panel-footer">
                         <ul class="post-meta list-inline small">
-                            <li><span class="glyphicon glyphicon-calendar" title="发表时间"></span><?php $this->date('Y-m-d'); ?></li>
-                            <li><span class="glyphicon glyphicon-fire" title="阅读量"></span> <span class="badge"><?php $this->viewsNum(); ?></span></li>
-                            <li><span class="glyphicon glyphicon-bookmark" title="分类"></span><?php $this->category(', '); ?></li>
-                            <li><a href="<?php $this->permalink() ?>#comments"><span class="glyphicon glyphicon-comment" title="评论"></span> <small><span class="badge"><?php $this->commentsNum(); ?></span></a></small></li>
+                            <li><i class="fa fa-calendar fa-fw" aria-hidden="true" title="发表时间"></i><?php $this->date('Y-m-d'); ?></li>
+                            <li><i class="fa fa-heart fa-fw" aria-hidden="true" title="阅读量"></i><span class="badge"><?php $this->viewsNum(); ?></span></li>
+                            <li><i class="fa fa-bookmark fa-fw" aria-hidden="true" title="分类"></i><?php $this->category(', '); ?></li>
+                            <li><i class="fa fa-comments fa-fw" aria-hidden="true" title="评论"></i><a href="<?php $this->permalink() ?>#comments"><span class="badge"><?php $this->commentsNum(); ?></span></a></li>
                         </ul>
                     </div>
                 </div>

@@ -61,6 +61,9 @@ function themeConfig($form)
     $bootstrapCssUrl = new Typecho_Widget_Helper_Form_Element_Text('bootstrapCssUrl', NULL, NULL, _t('bootstrap.min.css CDN URL'), _t('bootstrap.min.css CDN地址，为空则使用自带的bootstrap.min.css'));
     $form->addInput($bootstrapCssUrl);
 
+    $fontawesomeUrl = new Typecho_Widget_Helper_Form_Element_Text('fontawesomeUrl', NULL, NULL, _t('font-awesome.min.css CDN URL'), _t('font-awesome.min.css CDN地址，为空则使用自带的font-awesome.min.css'));
+    $form->addInput($fontawesomeUrl);
+
     $jQueryUrl = new Typecho_Widget_Helper_Form_Element_Text('jQueryUrl', NULL, NULL, _t('jquery.js CDN URL'), _t('jquery.js CDN地址，为空则使用自带的jQuery'));
     $form->addInput($jQueryUrl);
 }
@@ -78,7 +81,7 @@ function PageToLinks($page)
                 <h3 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-page" aria-expanded="true" aria-controls="collapse-list-page">
                         {$title}
-                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-small"></span>
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </h3>
             </div>

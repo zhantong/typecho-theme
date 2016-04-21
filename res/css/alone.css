@@ -54,7 +54,7 @@
 .need-margin-top{
     margin-top: 20px;
 }
-.collapse-toggle-icon{
+.panel-title i{
     color:#ccc !important;
 }
 #navbar-content a{

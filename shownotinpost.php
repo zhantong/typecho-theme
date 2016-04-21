@@ -42,7 +42,7 @@
                 <h3 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-category" aria-expanded="false" aria-controls="collapse-list-category">
                         <?php _e('分类'); ?>
-                        <span class="collapse-toggle-icon small glyphicon glyphicon-resize-full"></span>
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </h3>
             </div>
