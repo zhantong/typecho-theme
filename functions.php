@@ -20,9 +20,6 @@ function themeInit($archive) {
 
 function themeConfig($form)
 {
-    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', null, null, _t('站点LOGO地址'), _t('在这里填入一个图片URL地址, 以在网站标题前加上一个LOGO'));
-    $form->addInput($logoUrl);
-
     $db = Typecho_Db::get();
     $pages = $db->fetchAll($db->select('slug,title')->from('table.contents')->where('type=?', 'page'));
     $list = array('ShowRecentPosts' => _t('显示最新文章'),
@@ -95,9 +92,3 @@ function PageToLinks($page)
     </div>
 EOT;
 }
-/*
-function themeFields($layout) {
-    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点LOGO地址'), _t('在这里填入一个图片URL地址, 以在网站标题前加上一个LOGO'));
-    $layout->addItem($logoUrl);
-}
-*/
