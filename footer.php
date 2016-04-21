@@ -35,7 +35,6 @@
         }
     ?>
 "></script>
-<script src="<?php $this->options->themeUrl('res/js/toc.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('res/js/alone.js'); ?>"></script>
 <?php $this->footer(); ?>
     </body>
