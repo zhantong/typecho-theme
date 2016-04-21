@@ -53,6 +53,9 @@ function themeConfig($form)
     $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
     $form->addInput($icpNum);
 
+    $githubUrl = new Typecho_Widget_Helper_Form_Element_Text('githubUrl', NULL, NULL, _t('GitHub链接'), _t('如果链接为空则不会显示GitHub图标'));
+    $form->addInput($githubUrl);
+
     $siteStat = new Typecho_Widget_Helper_Form_Element_Textarea('siteStat', NULL, NULL, _t('统计代码'), _t('在这里填入网站统计代码'));
     $form->addInput($siteStat);
 

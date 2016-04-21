@@ -78,7 +78,7 @@
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                     <li class="dropdown-search text-center">
-                                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu" style="padding:0;border:0;">
                                             <div class="input-group" id="search">
                                                 <input type="text" class="form-control" placeholder="输入关键字搜索">
@@ -88,6 +88,10 @@
                                             </div>
                                         </ul>
                                     </li>
+                                    <?php if ($this->options->githubUrl): ?>
+                                        <li>
+                                            <a href="<?php $this->options->githubUrl(); ?>" class="text-center"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
