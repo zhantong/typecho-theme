@@ -70,7 +70,9 @@ article.post-brif ul.post-meta{
     border-bottom: 1px solid #CCC;
 }
 
-
+footer{
+    background-color: #EFEFEF;
+}
 /* table of content start */
 #toc {
     padding:10px;
