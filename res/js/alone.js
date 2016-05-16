@@ -8,7 +8,6 @@ function load_more_list(){
     $.ajax({
         type:'get',
         url:$('#logo').attr('href') + "page/" + current_page+"/",
-        data:{'load_type':'ajax'},
         success:function(msg){
             $('#content').append($(msg).filter('.articles').html());
             if($(msg).filter('#content-title').length){
@@ -113,7 +112,6 @@ function load_page(the_url,type){
         },
         type:'get',
         url:the_url,
-        data:{'load_type':'ajax'},
         success:function(msg){
             //console.log(msg);
             //console.log($(msg).filter('#content-title').text());

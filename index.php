@@ -9,7 +9,7 @@
  */
  ?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php if(isset($_GET['load_type']) and $_GET['load_type'] == 'ajax'):  ?>
+<?php if($this->request->isAjax()):  ?>
     <?php if($this->getCurrentPage()==1): ?>
         <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
     <?php endif ?>
