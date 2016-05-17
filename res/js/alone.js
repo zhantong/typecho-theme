@@ -288,19 +288,6 @@ jQuery.fn.toc.defaults = {
     }
     //console.log(i+"\t"+heading+"\t"+prefix);
     return prefix+'-'+i;
-    var candidateId = $(heading).text().replace(/[^a-z0-9]/ig, ' ').replace(/\s+/g, '-').toLowerCase();
-    if (verboseIdCache[candidateId]) {
-      var j = 2;
-
-      while(verboseIdCache[candidateId + j]) {
-        j++;
-      }
-      candidateId = candidateId + '-' + j;
-
-    }
-    verboseIdCache[candidateId] = true;
-
-    return prefix + '-' + candidateId;
   },
   headerText: function(i, heading, $heading) {
     return $heading.data('toc-title') || $heading.text();
