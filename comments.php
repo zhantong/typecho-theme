@@ -110,6 +110,16 @@
                         <i class="form-control-feedback fa fa-asterisk"></i>
                     </div>
                 </div>
+                <div class="form-group has-feedback">
+                    <div>
+                        <img class="col-sm-offset-2" src="<?php echo Typecho_Common::url('/action/captcha', Helper::options()->index); ?>" alt="captcha" onclick="this.src = this.src + '?' + Math.random()" style="cursor: pointer" title="点击图片刷新验证码"/>
+                    </div>
+                    <label for="captcha" class="col-sm-2 control-label"><?php _e('验证码'); ?></label>
+                    <div class="col-sm-10">
+                        <input type="text" name="captcha" class="form-control" required />
+                        <i class="form-control-feedback fa fa-asterisk"></i>
+                    </div>
+                </div>
                 <input name="parent" value="" style="display:none;"/>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
