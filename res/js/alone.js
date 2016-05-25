@@ -143,6 +143,7 @@ function process_content(msg,type){
         $('#show-in-post').hide();
         $('#show-not-in-post').show();
         $('#content').html($(msg).filter('article'));
+        $(msg).filter('#comments').insertAfter('#content article');
     }
     else if(type=='tag'){
         $('#show-in-post').hide();

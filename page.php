@@ -21,6 +21,7 @@
         <?php $this->content(); ?>
     </div>
 </article>
+<?php $this->need('comments.php'); ?>
 <?php if(!$is_ajax):  ?>
     </div>
     <?php $this->need('footer.php'); ?>
