@@ -1,4 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php require_once('functions.php'); ?>
 <div class="col-lg-2 visible-lg-block need-margin-top">
     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
     <?php while($pages->next()): ?>
