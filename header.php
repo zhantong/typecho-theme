@@ -43,7 +43,7 @@
         <![endif]-->
 
         <!-- 通过自有函数输出HTML头部信息 -->
-        <?php $this->header(); ?>
+        <?php $this->header('commentReply='); ?>
         <?php if ($this->options->siteStat): ?>
             <?php $this->options->siteStat(); ?>
         <?php endif; ?>

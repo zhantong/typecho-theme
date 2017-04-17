@@ -58,6 +58,22 @@ $(document).ready(function() {
     $('#collapse-list-related-posts').collapse('show');
     $('#collapse-list-prev-next-posts').collapse('show');
     $('#collapse-list-category').collapse('show');
+
+
+    $(document).on('click','a.comment-reply-link',function(){
+        var respond='#'+$(this).data('response');
+        $(respond).appendTo('#'+$(this).data('parentid'));
+        $(respond).find('form input[name="parent"]').val($(this).data('parentno'));
+        $('#cancel-comment-reply-link').show();
+        return false;
+    });
+    $(document).on('click','#cancel-comment-reply-link',function(){
+        var respond='#'+$(this).data('response');
+        $(respond).find('form input[name="parent"]').val('');
+        $(respond).appendTo('#comments');
+        $(this).hide();
+        return false;
+    });
 });
 function comparer(index) {
     return function(a, b) {

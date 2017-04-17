@@ -1,6 +1,14 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit;
 } ?>
+<?php
+function reply($word,$reply){
+echo '<a href="#" class="comment-reply-link" rel="nofollow" data-parentNo="'.$reply->coid.'" data-parentId="'.$reply->theId.'" data-response="'.$reply->parameter->respondId.'">' . $word . '</a>';
+}
+function cancelReply($word,$cancelReply){
+    echo '<a id="cancel-comment-reply-link" href="#" rel="nofollow" data-response="'.$cancelReply->parameter->respondId.'" style="display:none">' . $word . '</a>';
+}
+?>
 
 <?php function threadedComments($comments, $options) {
     $commentClass = '';
@@ -39,7 +47,7 @@
                 <?php $comments->content(); ?>
             </div>
             <div class="comment-reply text-right">
-                <?php $comments->reply(); ?>
+                <?php reply('回复',$comments); ?>
             </div>
         </div>
         <?php if ($comments->children) { ?>
@@ -61,7 +69,7 @@
     <?php if ($this->allow('comment')): ?>
         <div id="<?php $this->respondId(); ?>" class="respond">
             <div class="cancel-comment-reply">
-                <?php $comments->cancelReply(); ?>
+                <?php cancelReply('取消回复',$comments); ?>
             </div>
             <h3 id="response"><?php _e('添加新评论'); ?></h3>
             <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form" class="form-horizontal">
