@@ -110,6 +110,7 @@
                         <i class="form-control-feedback fa fa-asterisk"></i>
                     </div>
                 </div>
+                <?php if(false): ?>
                 <div class="form-group has-feedback">
                     <div>
                         <img class="col-sm-offset-2" src="<?php echo Typecho_Common::url('/action/captcha', Helper::options()->index); ?>" alt="captcha" onclick="this.src = this.src + '?' + Math.random()" style="cursor: pointer" title="点击图片刷新验证码"/>
@@ -120,6 +121,7 @@
                         <i class="form-control-feedback fa fa-asterisk"></i>
                     </div>
                 </div>
+              <?php endif; ?>
                 <input name="parent" value="" style="display:none;"/>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
