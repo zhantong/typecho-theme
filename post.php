@@ -1,19 +1,8 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
-    if($this->request->isAjax()){
-        $is_ajax=true;
-    }
-    else{
-        $is_ajax=false;
-    }
+define("_T_",true);
+$this->need('header.php');
 ?>
-<?php if(!$is_ajax):  ?>
-    <?php
-        $this->need('header.php');
-    ?>
-<?php else:  ?>
-    <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
-<?php endif ?>
 <article class="post">
     <h1 class="post-title"><?php $this->title() ?></h1>
     <ul class="post-meta list-inline">
@@ -28,9 +17,6 @@
     </div>
 </article>
 <?php $this->need('comments.php'); ?>
-<?php if($is_ajax):  ?>
-    <?php $this->need('showinpost.php'); ?>
-<?php else: ?>
+
     </div>
     <?php $this->need('footer.php'); ?>
-<?php endif ?>

@@ -46,7 +46,7 @@
                     </a>
                 </h3>
             </div>
-            <div id="collapse-list-category" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-category-heading" aria-expanded="false" style="height:0px;">
+            <div id="collapse-list-category" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-category-heading">
                 <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
                 <ul class="list-group">
                     <?php while($category->next()): ?>

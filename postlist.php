@@ -6,21 +6,7 @@
  */
 ?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php
-    if($this->request->isAjax()){
-        $is_ajax=true;
-    }
-    else{
-        $is_ajax=false;
-    }
-?>
-<?php if(!$is_ajax):  ?>
-    <?php
-        $this->need('header.php');
-    ?>
-<?php else:  ?>
-    <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
-<?php endif ?>
+<?php $this->need('header.php'); ?>
 <?php $this->widget('Widget_Archive@index', 'pageSize=10000&type=index')->to($posts); ?>
 <article>
     <h1 class="archive-title"><?php $this->archiveTitle('','',''); ?></h1>
@@ -43,7 +29,5 @@
         <?php endwhile; ?>
     </table>
 </article>
-<?php if(!$is_ajax):  ?>
     </div>
     <?php $this->need('footer.php'); ?>
-<?php endif ?>

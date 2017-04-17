@@ -97,6 +97,7 @@
                         </div>
                         <div class="col-md-8 hidden-xs hidden-sm need-margin-top">
                             <div id="relatedbar">
+                                <?php if(defined('_T_')&& _T_==true): ?>
                                 <div id="show-in-post">
                                     <div class="panel-group" role="tablist">
                                         <div class="panel panel-default">
@@ -115,9 +116,11 @@
                                     </div>
                                     <?php $this->need('showinpost.php'); ?>
                                 </div>
+                                <?php else: ?>
                                 <div id="show-not-in-post">
                                     <?php $this->need('shownotinpost.php'); ?>
                                 </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
