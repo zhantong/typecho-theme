@@ -1,6 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-</div>
+</div><!-- end #content -->
         <footer id="footer" class="text-center">
             &copy; <?php echo date('Y'); ?>
             <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
@@ -10,11 +10,11 @@
             <?php if ($this->options->icpNum): ?>
                 <a href="http://www.miitbeian.gov.cn/" target="blank" rel="nofollow"><?php $this->options->icpNum(); ?></a>
             <?php endif; ?>
-        </footer><!-- end #footer -->
-    </div>
+        </footer>
+    </div> <!-- end #middle -->
     <?php $this->need('sidebar.php'); ?>
-</div>
-</div>
+</div><!-- end div .row-fluid -->
+</div><!-- end #body -->
 <script src="
     <?php
         if ($this->options->jQueryUrl){

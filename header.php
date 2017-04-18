@@ -58,10 +58,6 @@
                     <div class="row" id="left-sidebar">
                         <div id="navbar" class="col-sm-12 col-md-4">
                             <div class="dropdown">
-                                    <a class="btn btn-lg dropdown-toggle visible-xs" id="logo" href="<?php $this->options->siteUrl(); ?>" data-toggle="dropdown">
-                                        <i class="fa fa-home fa-fw" aria-hidden="true"></i>
-                                        <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
-                                    </a>
                                     <a class="btn btn-lg btn-block hidden-xs" href="<?php $this->options->siteUrl(); ?>">
                                         <i class="fa fa-home fa-fw" aria-hidden="true"></i>
                                         <span class="title-mini hidden-md"><?php $this->options->title() ?></span>
@@ -96,35 +92,28 @@
                             </div>
                         </div>
                         <div class="col-md-8 hidden-xs hidden-sm need-margin-top">
-                            <div id="relatedbar">
-                                <?php if(defined('_T_')&& _T_==true): ?>
-                                <div id="show-in-post">
-                                    <div class="panel-group" role="tablist">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="collapse-list-toc-heading">
-                                                <h3 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="false" aria-controls="collapse-list-toc">
-                                                        目录
-                                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div id="collapse-toc-page" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-toc-heading">
-                                                <div id="toc"></div>
-                                            </div>
+                            <?php if(defined('_IS_POST_')&& _IS_POST_==true): ?>
+                                <div class="panel-group" role="tablist">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="collapse-list-toc-heading">
+                                            <h3 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-toc-page" aria-expanded="false" aria-controls="collapse-list-toc">
+                                                    目录
+                                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div id="collapse-toc-page" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-toc-heading">
+                                            <div id="toc"></div>
                                         </div>
                                     </div>
-                                    <?php $this->need('showinpost.php'); ?>
                                 </div>
-                                <?php else: ?>
-                                <div id="show-not-in-post">
-                                    <?php $this->need('shownotinpost.php'); ?>
-                                </div>
-                                <?php endif; ?>
-                            </div>
+                                <?php $this->need('showinpost.php'); ?>
+                            <?php else: ?>
+                                <?php $this->need('shownotinpost.php'); ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 need-margin-top" id="middle">
-                    <div>
                         <div id="content">

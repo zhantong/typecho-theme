@@ -7,7 +7,7 @@ function load_more_list(){
     current_page ++;
     $.ajax({
         type:'get',
-        url:$('#logo').attr('href') + "page/" + current_page+"/",
+        url:"/page/" + current_page+"/",
         success:function(msg){
             $('#content').append($(msg).filter('.articles').html());
             $('#load-more').removeAttr('disabled').html('加载更多');
@@ -37,7 +37,7 @@ $(document).ready(function() {
     });
     $('#search button').click(function(){
         keywords=$('#search input').val();
-        the_url=$('#logo').attr('href') + "search/" + keywords+"/";
+        the_url="/search/" + keywords+"/";
         window.open(the_url,'_blank');
     });
     $(document).on('hidden.bs.collapse','.collapse',function(){

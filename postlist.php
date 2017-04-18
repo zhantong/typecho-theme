@@ -29,5 +29,4 @@
         <?php endwhile; ?>
     </table>
 </article>
-    </div>
-    <?php $this->need('footer.php'); ?>
+<?php $this->need('footer.php'); ?>

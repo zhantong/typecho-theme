@@ -38,5 +38,4 @@
     <?php return; //完成ajax方式返回，退出此页面?>
 <?php endif ?>
 <?php $this->need('header.php'); ?>
-</div>
 <?php $this->need('footer.php'); ?>

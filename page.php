@@ -8,5 +8,4 @@
     </div>
 </article>
 <?php $this->need('comments.php'); ?>
-    </div>
-    <?php $this->need('footer.php'); ?>
+<?php $this->need('footer.php'); ?>

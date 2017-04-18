@@ -41,5 +41,4 @@
         <h2 class="post-title"><?php _e('没有找到内容'); ?></h2>
     </article>
 <?php endif; ?>
-</div>
 <?php $this->need('footer.php'); ?>

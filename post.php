@@ -1,6 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
-define("_T_",true);
+define("_IS_POST_",true);
 $this->need('header.php');
 ?>
 <article class="post">
@@ -17,6 +17,4 @@ $this->need('header.php');
     </div>
 </article>
 <?php $this->need('comments.php'); ?>
-
-    </div>
-    <?php $this->need('footer.php'); ?>
+<?php $this->need('footer.php'); ?>
