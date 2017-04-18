@@ -1,11 +1,3 @@
-<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-<?php while ($pages->next()): ?>
-    <?php if (!empty($this->options->secondbarPage) && in_array($pages->slug, $this->options->secondbarPage)): ?>
-        <section class="widget">
-            <?php PageToLinks($pages); ?>
-        </section>
-    <?php endif; ?>
-<?php endwhile; ?>
 <?php if (!empty($this->options->secondbarPage) && in_array('ShowRecentPosts', $this->options->secondbarPage)): ?>
     <section class="widget">
         <h3 class="widget-title"><?php _e('最新文章'); ?></h3>

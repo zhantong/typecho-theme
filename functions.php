@@ -44,6 +44,16 @@ function themeConfig($form)
         array('ShowRelatedPosts', 'ShowPrevNextPosts'), _t('第二栏显示（文章页面）'));
     $form->addInput($secondbarPost->multiMode());
 
+    $expandItemsList=array(
+        'TableOfContents' => '目录',
+        'Category' => '分类',
+        'RelatedPosts' => '相关文章',
+        'PrevNextPosts' => '上一篇/下一篇'
+    );
+    $expandItems = new Typecho_Widget_Helper_Form_Element_Checkbox('expandItems', $expandItemsList,
+        array('TableOfContents', 'Category','RelatedPosts','PrevNextPosts'), _t('默认展开'));
+    $form->addInput($expandItems->multiMode());
+
     $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
     $form->addInput($icpNum);
 

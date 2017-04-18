@@ -17,6 +17,24 @@
         <script src="<?php $this->options->jQueryUrl ? $this->options->jQueryUrl() : $this->options->themeUrl('res/jquery/jquery-2.2.3.min.js') ?>"></script>
         <script src="<?php $this->options->bootstrapJsUrl ? $this->options->bootstrapJsUrl() : $this->options->themeUrl('res/bootstrap-3.3.6/js/bootstrap.min.js') ?>"></script>
         <script src="<?php $this->options->themeUrl('res/js/alone.js'); ?>"></script>
+        <script>
+            $(document).ready(function () {
+                <?php if(!empty($this->options->expandItems)): ?>
+                    <?php if (in_array('TableOfContents', $this->options->expandItems)): ?>
+                        $('#collapse-toc-page').collapse('show');
+                    <?php endif; ?>
+                    <?php if (in_array('Category', $this->options->expandItems)): ?>
+                        $('#collapse-list-category').collapse('show');
+                    <?php endif; ?>
+                    <?php if (in_array('RelatedPosts', $this->options->expandItems)): ?>
+                        $('#collapse-list-related-posts').collapse('show');
+                    <?php endif; ?>
+                    <?php if (in_array('PrevNextPosts', $this->options->expandItems)): ?>
+                        $('#collapse-list-prev-next-posts').collapse('show');
+                    <?php endif; ?>
+                <?php endif; ?>
+            });
+        </script>
         <?php $this->footer(); ?>
     </body>
 </html>

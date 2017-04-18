@@ -54,10 +54,7 @@ $(document).ready(function () {
         table.children('tbody').empty().html(rows).hide().fadeIn();
     });
 
-    $('#collapse-toc-page').collapse('show');
-    $('#collapse-list-related-posts').collapse('show');
-    $('#collapse-list-prev-next-posts').collapse('show');
-    $('#collapse-list-category').collapse('show');
+
 
 
     $(document).on('click', 'a.comment-reply-link', function () {
