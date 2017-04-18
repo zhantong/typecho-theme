@@ -2,7 +2,7 @@
 <?php require_once('functions.php'); ?>
 <div class="col-lg-2 visible-lg-block need-margin-top">
     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-    <?php while($pages->next()): ?>
+    <?php while ($pages->next()): ?>
         <?php if (!empty($this->options->sidebarBlock) && in_array($pages->slug, $this->options->sidebarBlock)): ?>
             <section class="widget">
                 <?php PageToLinks($pages); ?>
@@ -22,19 +22,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="collapse-list-recent-comments-heading">
                     <h3 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments" aria-expanded="false" aria-controls="collapse-list-recent-comments">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-recent-comments"
+                           aria-expanded="false" aria-controls="collapse-list-recent-comments">
                             <?php _e('最近回复'); ?>
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
                         </a>
                     </h3>
                 </div>
-                <div id="collapse-list-recent-comments" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-recent-comments-heading" aria-expanded="false" style="height:0px;">
-                    <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+                <div id="collapse-list-recent-comments" class="panel-collapse collapse" role="tabpanel"
+                     aria-labelledby="collapse-list-recent-comments-heading" aria-expanded="false" style="height:0px;">
+                    <?php $this->widget('Widget_Comments_Recent', 'ignoreAuthor=true')->to($comments); ?>
                     <ul class="list-group">
-                        <?php while($comments->next()): ?>
+                        <?php while ($comments->next()): ?>
                             <li class="list-group-item">
                                 <a class="post-url" href="<?php $comments->permalink(); ?>">
-                                    <?php $comments->author(false); ?> (<small><em><?php $comments->title(); ?></em></small>)
+                                    <?php $comments->author(false); ?> (
+                                    <small><em><?php $comments->title(); ?></em></small>
+                                    )
                                 </a>
                                 : <?php $comments->excerpt(35, '...'); ?>
                             </li>
@@ -63,22 +67,38 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="collapse-list-others-heading">
                     <h3 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-others" aria-expanded="false" aria-controls="collapse-list-others">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-others"
+                           aria-expanded="false" aria-controls="collapse-list-others">
                             <?php _e('其它'); ?>
                         </a>
                     </h3>
                 </div>
-                <div id="collapse-list-others" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-others-heading">
+                <div id="collapse-list-others" class="panel-collapse collapse" role="tabpanel"
+                     aria-labelledby="collapse-list-others-heading">
                     <ul class="list-group">
-                        <?php if($this->user->hasLogin()): ?>
-                            <li class="list-group-item"><a href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?> (<?php $this->user->screenName(); ?>)</a></li>
-                            <li class="list-group-item"><a href="<?php $this->options->logoutUrl(); ?>"><?php _e('退出'); ?></a></li>
+                        <?php if ($this->user->hasLogin()): ?>
+                            <li class="list-group-item">
+                                <a href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?>
+                                    (<?php $this->user->screenName(); ?>)
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="<?php $this->options->logoutUrl(); ?>"><?php _e('退出'); ?></a>
+                            </li>
                         <?php else: ?>
-                            <li class="list-group-item"><a href="<?php $this->options->adminUrl('login.php'); ?>"><?php _e('登录'); ?></a></li>
+                            <li class="list-group-item">
+                                <a href="<?php $this->options->adminUrl('login.php'); ?>"><?php _e('登录'); ?></a>
+                            </li>
                         <?php endif; ?>
-                        <li class="list-group-item"><a href="<?php $this->options->feedUrl(); ?>"><?php _e('文章 RSS'); ?></a></li>
-                        <li class="list-group-item"><a href="<?php $this->options->commentsFeedUrl(); ?>"><?php _e('评论 RSS'); ?></a></li>
-                        <li class="list-group-item"><a href="http://www.typecho.org">Typecho</a></li>
+                        <li class="list-group-item">
+                            <a href="<?php $this->options->feedUrl(); ?>"><?php _e('文章 RSS'); ?></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="<?php $this->options->commentsFeedUrl(); ?>"><?php _e('评论 RSS'); ?></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://www.typecho.org">Typecho</a>
+                        </li>
                     </ul>
                 </div>
             </div>

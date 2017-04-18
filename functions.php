@@ -1,10 +1,7 @@
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
-
-if (!defined('__TYPECHO_ROOT_DIR__')) {
-    exit;
-}
-
-function themeInit($archive) {
+function themeInit($archive)
+{
     if ($archive->is('index')) {
         $archive->parameter->pageSize = 10;
     }
@@ -23,28 +20,28 @@ function themeConfig($form)
     $db = Typecho_Db::get();
     $pages = $db->fetchAll($db->select('slug,title')->from('table.contents')->where('type=?', 'page'));
     $list = array('ShowRecentPosts' => _t('显示最新文章'),
-    'ShowRecentComments' => _t('显示最近回复'),
-    'ShowCategory' => _t('显示分类'),
-    'ShowArchive' => _t('显示归档'),
-    'ShowOther' => _t('显示其它杂项'), );
+        'ShowRecentComments' => _t('显示最近回复'),
+        'ShowCategory' => _t('显示分类'),
+        'ShowArchive' => _t('显示归档'),
+        'ShowOther' => _t('显示其它杂项'),);
     foreach ($pages as $key => $value) {
         $pagesArray[$value['slug']] = $value['title'];
     }
     $list = array_merge($list, $pagesArray);
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', $list,
-    array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
+        array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
     $showPages = new Typecho_Widget_Helper_Form_Element_Checkbox('showPages', $pagesArray, array_keys($pagesArray), _t('独立页面显示'));
     $form->addInput($showPages->multiMode());
     $secondbarPage = new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPage', $list,
-    array('ShowCategory', 'ShowArchive'), _t('第二栏显示（非文章页面）'));
+        array('ShowCategory', 'ShowArchive'), _t('第二栏显示（非文章页面）'));
     $form->addInput($secondbarPage->multiMode());
-    $secondbarList=array(
+    $secondbarList = array(
         'ShowRelatedPosts' => _t('显示相关文章'),
         'ShowPrevNextPosts' => _t('显示上一篇/下一篇'),
     );
-    $secondbarPost=new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPost', $secondbarList,
-    array('ShowRelatedPosts', 'ShowPrevNextPosts'), _t('第二栏显示（文章页面）'));
+    $secondbarPost = new Typecho_Widget_Helper_Form_Element_Checkbox('secondbarPost', $secondbarList,
+        array('ShowRelatedPosts', 'ShowPrevNextPosts'), _t('第二栏显示（文章页面）'));
     $form->addInput($secondbarPost->multiMode());
 
     $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
@@ -74,7 +71,7 @@ function PageToLinks($page)
     $title = $page->title;
     $content = str_replace('<ul>', "<ul class='list-group'>", $content);
     $content = str_replace('<li>', "<li class='list-group-item'>", $content);
-    echo<<<EOT
+    echo <<<EOT
     <div class="panel-group" role="tablist">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="collapse-list-page-heading">

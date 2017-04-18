@@ -7,14 +7,15 @@
  * @version 1.0.0
  * @link https://github.com/zhantong/typecho-theme
  */
- ?>
+?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php if($this->request->isAjax()):  ?>
-    <?php if($this->getCurrentPage()==1): ?>
-        <a id="content-title" style="display:none"><?php $this->archiveTitle('','',' - '); ?><?php $this->options->title(); ?></a>
+<?php if ($this->request->isAjax()): ?>
+    <?php if ($this->getCurrentPage() == 1): ?>
+        <a id="content-title"
+           style="display:none"><?php $this->archiveTitle('', '', ' - '); ?><?php $this->options->title(); ?></a>
     <?php endif ?>
     <div class="articles">
-        <?php while($this->next()): ?>
+        <?php while ($this->next()): ?>
             <article class="post-brif">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -25,10 +26,24 @@
                     </div>
                     <div class="panel-footer">
                         <ul class="post-meta list-inline small">
-                            <li><i class="fa fa-calendar fa-fw" aria-hidden="true" title="发表时间"></i><?php $this->date('Y-m-d'); ?></li>
-                            <li><i class="fa fa-heart fa-fw" aria-hidden="true" title="阅读量"></i><span class="badge"><?php $this->viewsNum(); ?></span></li>
-                            <li><i class="fa fa-bookmark fa-fw" aria-hidden="true" title="分类"></i><?php $this->category(', '); ?></li>
-                            <li><i class="fa fa-comments fa-fw" aria-hidden="true" title="评论"></i><a href="<?php $this->permalink() ?>#comments"><span class="badge"><?php $this->commentsNum(); ?></span></a></li>
+                            <li>
+                                <i class="fa fa-calendar fa-fw" aria-hidden="true" title="发表时间"></i>
+                                <?php $this->date('Y-m-d'); ?>
+                            </li>
+                            <li>
+                                <i class="fa fa-heart fa-fw" aria-hidden="true" title="阅读量"></i>
+                                <span class="badge"><?php $this->viewsNum(); ?></span>
+                            </li>
+                            <li>
+                                <i class="fa fa-bookmark fa-fw" aria-hidden="true" title="分类"></i>
+                                <?php $this->category(', '); ?>
+                            </li>
+                            <li>
+                                <i class="fa fa-comments fa-fw" aria-hidden="true" title="评论"></i>
+                                <a href="<?php $this->permalink() ?>#comments">
+                                    <span class="badge"><?php $this->commentsNum(); ?></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

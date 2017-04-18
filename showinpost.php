@@ -4,17 +4,23 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="collapse-list-related-posts-heading">
                 <h3 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-related-posts" aria-expanded="false" aria-controls="collapse-list-related-posts">
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-related-posts"
+                       aria-expanded="false" aria-controls="collapse-list-related-posts">
                         <?php _e('相关文章'); ?>
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </h3>
             </div>
-            <div id="collapse-list-related-posts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-related-posts-heading">
+            <div id="collapse-list-related-posts" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapse-list-related-posts-heading">
                 <?php $this->related(5)->to($relatedPosts); ?>
                 <ul class="list-group">
-                    <?php while($relatedPosts->next()): ?>
-                        <li class="list-group-item"><a class="post-url" href="<?php $relatedPosts->permalink(); ?>"><?php $relatedPosts->title(); ?></a></li>
+                    <?php while ($relatedPosts->next()): ?>
+                        <li class="list-group-item">
+                            <a class="post-url" href="<?php $relatedPosts->permalink(); ?>">
+                                <?php $relatedPosts->title(); ?>
+                            </a>
+                        </li>
                     <?php endwhile; ?>
                 </ul>
             </div>
@@ -27,16 +33,18 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="collapse-list-prev-next-posts-heading">
                 <h3 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-prev-next-posts" aria-expanded="false" aria-controls="collapse-list-prev-next-posts">
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-list-prev-next-posts"
+                       aria-expanded="false" aria-controls="collapse-list-prev-next-posts">
                         <?php _e('上一篇/下一篇'); ?>
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </h3>
             </div>
-            <div id="collapse-list-prev-next-posts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-list-prev-next-posts-heading">
+            <div id="collapse-list-prev-next-posts" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapse-list-prev-next-posts-heading">
                 <ul class="list-group">
-                    <li class="list-group-item"><?php $this->thePrev('%s','没有了'); ?></li>
-                    <li class="list-group-item"><?php $this->theNext('%s','没有了'); ?></li>
+                    <li class="list-group-item"><?php $this->thePrev('%s', '没有了'); ?></li>
+                    <li class="list-group-item"><?php $this->theNext('%s', '没有了'); ?></li>
                 </ul>
             </div>
         </div>
